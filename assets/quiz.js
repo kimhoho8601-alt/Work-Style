@@ -59,17 +59,52 @@
     ['지금 가장 키우고 싶은 업무 습관은?', [['중요한 일을 더 빠르게 끝내기','execute'],['복잡한 일을 더 명확히 정리하기','plan'],['힘을 덜 들이고도 좋은 결과 만들기','quality'],['내 의견과 경계를 더 분명히 말하기','people']]]
   ];
 
-  var images = [
-    'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80'
+  var VISUAL_SETS = [
+    ['https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1450101215322-bf5cd27642fc?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80'],
+    ['https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80','https://images.unsplash.com/photo-1497366754204-3b2d0db3b8f1?auto=format&fit=crop&w=900&q=80']
   ];
 
   var index = 0;
   var scores = { execute:0, plan:0, quality:0, people:0 };
 
   function el(id) { return document.getElementById(id); }
+
+  function preloadVisuals() {
+    for (var i = 0; i < VISUAL_SETS.length; i++) {
+      for (var j = 0; j < VISUAL_SETS[i].length; j++) {
+        var img = new Image();
+        img.src = VISUAL_SETS[i][j];
+      }
+    }
+  }
+
+  function swapImage(target, src, delay) {
+    if (!target) return;
+    target.style.transition = 'opacity .28s ease, transform .38s ease';
+    target.style.opacity = '0.2';
+    target.style.transform = 'scale(1.035)';
+    setTimeout(function () {
+      target.src = src;
+      target.onload = function () {
+        target.style.opacity = '1';
+        target.style.transform = 'scale(1)';
+      };
+    }, delay || 80);
+  }
 
   function renderQuestion() {
     var item = QUESTIONS[index];
@@ -98,7 +133,6 @@
         button.addEventListener('click', function () {
           choose(option[1]);
         });
-
         box.appendChild(button);
       })(item[1][i], i);
     }
@@ -107,8 +141,9 @@
     card.className = 'quiz-main question-in';
     setTimeout(function () { card.className = 'quiz-main'; }, 360);
 
-    if (el('visualA')) el('visualA').src = images[index % images.length];
-    if (el('visualB')) el('visualB').src = images[(index + 2) % images.length];
+    var pair = VISUAL_SETS[index % VISUAL_SETS.length];
+    swapImage(el('visualA'), pair[0], 40);
+    swapImage(el('visualB'), pair[1], 110);
   }
 
   function choose(key) {
@@ -150,8 +185,10 @@
     el('actions').innerHTML = actions;
 
     setTimeout(function () {
-      var barsEls = el('bars').getElementsByTagName('i');
-      for (var n = 0; n < barsEls.length; n++) barsEls[n].style.width = barsEls[n].getAttribute('data-width');
+      var all = el('bars').getElementsByTagName('i');
+      for (var n = 0; n < all.length; n++) {
+        all[n].style.width = all[n].getAttribute('data-width');
+      }
     }, 320);
 
     window.scrollTo(0, 0);
@@ -168,11 +205,10 @@
 
   function init() {
     var restartButton = el('restartBtn');
-    if (restartButton) restartButton.addEventListener('click', restart);
+    if (restartButton) restartButton.onclick = restart;
+    preloadVisuals();
     renderQuestion();
   }
-
-  window.KIMKIM = { init:init, restart:restart };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

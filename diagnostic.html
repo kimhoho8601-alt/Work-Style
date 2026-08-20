@@ -4,27 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>KIMKIM 업무 패턴 진단</title>
-<style>
-:root{--bg:#f6f3ec;--paper:#fffdf8;--ink:#171717;--muted:#706b63;--line:#d7d0c4;--blue:#4056e8;--lime:#dfff55;--pink:#ff89bd;--navy:#17223b}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#fffdf8,#eef1ff);color:var(--ink);font-family:Arial,'Apple SD Gothic Neo','Noto Sans KR',sans-serif}.nav{height:64px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(23,23,23,.1);background:rgba(246,243,236,.9);position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}.logo{font-size:22px;font-weight:900;letter-spacing:-.07em}.back{color:var(--ink);text-decoration:none;font-size:12px;font-weight:800}.wrap{max-width:1160px;margin:auto;padding:36px 20px 80px}.top{display:grid;grid-template-columns:120px 1fr 80px;gap:18px;align-items:center;margin-bottom:28px}.track{height:6px;background:white;border:1.5px solid var(--ink);overflow:hidden;border-radius:999px}.track i{display:block;height:100%;width:0;background:var(--blue);transition:.35s}.counter{text-align:right;font-size:12px}.status{display:inline-flex;margin:0 0 18px;padding:7px 10px;border:1px solid var(--ink);border-radius:999px;background:#ffd7d7;font-size:10px;font-weight:900}.status.ready{background:var(--lime)}.panel{min-height:72vh;display:flex;flex-direction:column;justify-content:center}.kicker{font-size:11px;color:var(--blue);font-weight:900;margin-bottom:18px}.q{font-size:clamp(38px,6vw,76px);line-height:1.03;letter-spacing:-.055em;margin:0 0 34px;max-width:930px}.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.option{min-height:116px;border:1.5px solid var(--ink);border-radius:24px;background:var(--paper);padding:22px;text-align:left;cursor:pointer;box-shadow:5px 5px 0 rgba(23,23,23,.13);transition:.18s}.option:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--blue)}.option span{display:block;font-size:10px;color:var(--muted);margin-bottom:20px}.option b{font-size:17px;line-height:1.5}.result{display:none;padding-top:24px}.result-head{opacity:0;transform:translateY(28px);animation:reportIn .7s .1s cubic-bezier(.2,.8,.2,1) forwards}.result-label{font-size:11px;font-weight:900;color:var(--blue);margin-bottom:16px}.result h1{font-size:clamp(56px,9vw,118px);line-height:.88;letter-spacing:-.075em;margin:12px 0 26px}.result h1 small{display:block;font-size:.23em;margin-top:18px;color:var(--muted);letter-spacing:-.03em}.desc{font-size:clamp(18px,2vw,26px);line-height:1.6;max-width:860px;color:#403d39}.summary{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.summary-card{border:1px solid var(--line);background:rgba(255,255,255,.72);border-radius:20px;padding:20px;opacity:0;transform:translateY(22px);animation:cardIn .6s forwards}.summary-card:nth-child(1){animation-delay:.25s}.summary-card:nth-child(2){animation-delay:.38s}.summary-card:nth-child(3){animation-delay:.51s}.summary-card span{display:block;font-size:11px;color:var(--muted);font-weight:800;margin-bottom:10px}.summary-card strong{display:block;font-size:18px;line-height:1.45}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}.card{border:1.5px solid var(--ink);border-radius:28px;padding:28px;min-height:350px;box-shadow:7px 7px 0 rgba(23,23,23,.12);opacity:0;transform:translateY(28px);animation:cardIn .7s .65s forwards}.dark{background:var(--navy);color:#fff}.lime{background:var(--lime)}.card-label{font-size:11px;font-weight:900;opacity:.65;margin-bottom:24px}.bar-row{margin:19px 0}.bar-head{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px}.bar{height:12px;background:#30374b;border-radius:999px;overflow:hidden}.bar i{display:block;height:100%;background:var(--pink);border-radius:999px;width:0;transition:width 1s cubic-bezier(.2,.8,.2,1)}.action{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:17px 0;border-top:1px solid rgba(23,23,23,.16)}.action:first-child{border-top:0}.action p{margin:7px 0 0;line-height:1.55}.actions{display:flex;gap:10px;margin-top:24px;opacity:0;animation:fadeIn .5s 1s forwards}.btn{border:1.5px solid var(--ink);border-radius:999px;padding:14px 18px;font-weight:900;text-decoration:none;color:#fff;background:var(--blue);cursor:pointer}.btn.alt{background:var(--paper);color:var(--ink)}
-@keyframes reportIn{to{opacity:1;transform:none}}@keyframes cardIn{to{opacity:1;transform:none}}@keyframes fadeIn{to{opacity:1}}@media(max-width:760px){.top{grid-template-columns:75px 1fr 55px}.options,.grid,.summary{grid-template-columns:1fr}.wrap{padding:24px 14px 50px}.actions{flex-direction:column}}
-</style>
+<link rel="stylesheet" href="./assets/app.css?v=20260820-3">
 </head>
-<body>
-<nav class="nav"><div class="logo">KIMKIM</div><a class="back" href="./index.html">← 메인으로</a></nav>
-<main class="wrap">
-<section id="quiz">
-<div class="top"><div class="logo">진단</div><div class="track"><i id="progress"></i></div><div class="counter" id="count">1 / 12</div></div>
-<div id="jsStatus" class="status">진단 준비 중</div>
-<div class="panel"><div class="kicker" id="kicker">문항 01</div><h1 class="q" id="question">새 업무가 도착했습니다. 첫 반응은?</h1><div class="options" id="options"><button type="button" class="option"><span>01</span><b>진단을 준비하고 있습니다.</b></button></div></div>
+<body class="quiz-page">
+<nav class="site-nav"><div class="brand">KIMKIM</div><a class="back-link" href="./index.html">← 메인으로</a></nav>
+<main>
+<section id="quiz" class="quiz-shell">
+<div class="quiz-top"><div class="brand">진단</div><div class="progress-track"><i id="progress"></i></div><div class="quiz-counter" id="count">1 / 16</div></div>
+<div class="quiz-layout">
+<div id="questionCard" class="quiz-main"><div class="quiz-kicker" id="kicker">문항 01</div><h1 class="quiz-question" id="question">새 업무가 도착했습니다. 가장 먼저 하는 행동은?</h1><div class="quiz-options" id="options"></div></div>
+<aside class="visual-rail" aria-hidden="true"><div class="visual-card a"><img id="visualA" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt=""></div><div class="visual-card b"><img id="visualB" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" alt=""></div><div class="visual-badge">나의<br>업무 패턴</div></aside>
+</div>
 </section>
-<section class="result" id="result">
-<div class="result-head"><div class="result-label">업무 패턴 진단 결과</div><h1 id="resultTitle"></h1><p class="desc" id="resultDesc"></p><div class="summary"><div class="summary-card"><span>핵심 강점</span><strong id="strengthText"></strong></div><div class="summary-card"><span>주의할 패턴</span><strong id="riskText"></strong></div><div class="summary-card"><span>우선 권고</span><strong id="priorityText"></strong></div></div></div>
-<div class="grid"><div class="card dark"><div class="card-label">업무 패턴 분포</div><div id="bars"></div></div><div class="card lime"><div class="card-label">이번 주 실행 권고</div><div id="actions"></div></div></div>
-<div class="actions"><button class="btn" type="button" id="restartBtn">다시 진단하기</button><a class="btn alt" href="./index.html">메인으로 돌아가기</a></div>
+<section id="result" class="result-page">
+<div class="report-shell">
+<div class="report-top"><div class="report-eyebrow">업무 패턴 진단 결과</div><h1 id="resultTitle" class="report-title"></h1><p id="resultDesc" class="report-lead"></p></div>
+<div class="report-summary"><div class="summary-box"><span>핵심 강점</span><strong id="strengthText"></strong></div><div class="summary-box"><span>주의할 패턴</span><strong id="riskText"></strong></div><div class="summary-box"><span>우선 권고</span><strong id="priorityText"></strong></div><div class="summary-box"><span>업무 습관 해석</span><strong id="habitText"></strong></div></div>
+<div class="report-grid"><section class="report-card dark"><h3>업무 패턴 분포</h3><div id="bars"></div></section><section class="report-card light"><h3>이번 주 실행 권고</h3><div id="actions"></div></section><section class="report-card white"><h3>종합 해석</h3><div class="insight-grid"><div class="insight"><span>주요 조합</span><strong id="mixText"></strong></div><div class="insight"><span>성과가 잘 나는 조건</span><strong>강점이 필요한 업무에 에너지를 집중하고, 반대 성향이 필요한 순간에는 의도적으로 보완 행동을 넣어보세요.</strong></div><div class="insight"><span>이번 주 관찰 포인트</span><strong>일을 시작할 때와 마무리할 때 내가 어떤 선택을 반복하는지 한 번만 기록해보세요.</strong></div></div></section></div>
+<div class="report-actions"><button class="report-btn" type="button" id="restartBtn">다시 진단하기</button><a class="report-btn alt" href="./index.html">메인으로 돌아가기</a></div>
+</div>
 </section>
-<noscript><p style="padding:18px;border:2px solid #111;background:#ffb4b4;font-weight:800">현재 브라우저에서 자바스크립트가 꺼져 있습니다. 자바스크립트를 켠 뒤 다시 열어주세요.</p></noscript>
 </main>
-<script src="./diagnostic.js?v=20260820-2"></script>
+<script src="./assets/quiz.js?v=20260820-3"></script>
 </body>
 </html>

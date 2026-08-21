@@ -3,46 +3,49 @@
 var stage=document.getElementById('filmStage');
 var frame=document.getElementById('filmFrame');
 var video=document.getElementById('heroFilm');
-if(stage&&frame){
-  var tx=0,ty=0,cx=0,cy=0;
+var status=document.getElementById('filmStatus');
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if(stage&&frame&&!reduce){
   function move(e){
     var r=stage.getBoundingClientRect();
-    tx=((e.clientX-r.left)/r.width-.5)*10;
-    ty=((e.clientY-r.top)/r.height-.5)*-8;
+    var x=((e.clientX-r.left)/r.width-.5)*7;
+    var y=((e.clientY-r.top)/r.height-.5)*-5;
+    frame.style.transform='rotateX('+y+'deg) rotateY('+x+'deg) translateZ(0)';
   }
-  function leave(){tx=0;ty=0;}
-  function tick(){
-    cx+=(tx-cx)*.08;
-    cy+=(ty-cy)*.08;
-    frame.style.transform='rotateX('+cy+'deg) rotateY('+cx+'deg) translateZ(0)';
-    requestAnimationFrame(tick);
-  }
+  function leave(){frame.style.transform='rotateX(0deg) rotateY(0deg) translateZ(0)';}
   stage.addEventListener('pointermove',move);
   stage.addEventListener('pointerleave',leave);
-  requestAnimationFrame(tick);
 }
 
-function base64ToBlobUrl(base64){
-  var binary=atob(base64.replace(/\s/g,''));
-  var len=binary.length;
-  var bytes=new Uint8Array(len);
-  for(var i=0;i<len;i++){bytes[i]=binary.charCodeAt(i);}
+function toBlobUrl(base64){
+  var clean=base64.replace(/\s/g,'');
+  var binary=atob(clean);
+  var bytes=new Uint8Array(binary.length);
+  for(var i=0;i<binary.length;i++){bytes[i]=binary.charCodeAt(i);}
   return URL.createObjectURL(new Blob([bytes],{type:'video/mp4'}));
 }
 
-if(video){
-  fetch('./assets/video/micro00.txt?v=20260821-1')
-    .then(function(r){if(!r.ok)throw new Error('video data unavailable');return r.text();})
-    .then(function(data){
-      var src=base64ToBlobUrl(data);
-      video.src=src;
-      video.addEventListener('canplay',function(){
-        video.classList.add('is-ready');
-        var p=video.play();
-        if(p&&p.catch){p.catch(function(){});}
-      },{once:true});
-      video.load();
-    })
-    .catch(function(){});
-}
+if(video&&window.__KIMKIM_HERO_VIDEO){
+  try{
+    video.muted=true;
+    video.loop=true;
+    video.playsInline=true;
+    video.autoplay=true;
+    var url=toBlobUrl(window.__KIMKIM_HERO_VIDEO);
+    video.src=url;
+    var reveal=function(){
+      video.classList.add('is-ready');
+      if(status)status.textContent='브랜드 필름 재생 중';
+      var p=video.play();
+      if(p&&p.catch){p.catch(function(){if(status)status.textContent='브랜드 필름';});}
+    };
+    video.addEventListener('loadeddata',reveal,{once:true});
+    video.addEventListener('error',function(){if(status)status.textContent='브랜드 필름';},{once:true});
+    video.load();
+    window.addEventListener('beforeunload',function(){URL.revokeObjectURL(url);},{once:true});
+  }catch(err){
+    if(status)status.textContent='브랜드 필름';
+  }
+}else if(status){status.textContent='브랜드 필름';}
 })();

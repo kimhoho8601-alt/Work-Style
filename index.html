@@ -6,29 +6,32 @@
 <meta name="theme-color" content="#0b1020">
 <title>KIMKIM 업무 패턴 진단</title>
 <link rel="stylesheet" href="./assets/app.css?v=20260820-6">
-<link rel="stylesheet" href="./assets/ad.css?v=20260821-2">
+<link rel="stylesheet" href="./assets/ad.css?v=20260821-4">
 </head>
 <body>
 <nav class="site-nav"><div class="brand">KIMKIM</div><div class="nav-note">업무 패턴 진단 · 결과 저장 없음</div></nav>
 <main>
 <section class="hero film-hero">
-<div class="hero-noise"></div>
+<div class="hero-noise" aria-hidden="true"></div>
 <div class="film-hero-grid">
 <div class="film-copy">
-<div class="film-kicker">나를 설명하는 성격보다,<br>일할 때 반복되는 선택을 봅니다.</div>
-<h1 class="film-title"><span>일하는 방식은</span><span class="accent">결국</span><span>내가 가는 방향이 됩니다.</span></h1>
-<p class="film-lead">16개의 실제 업무 상황을 통해 실행, 구조 설계, 완성도, 관계 조율의 네 가지 경향을 읽고 지금의 강점과 다음 행동을 정리합니다.</p>
+<p class="film-kicker">나를 설명하는 성격보다,<br>일할 때 반복되는 선택을 봅니다.</p>
+<h1 class="film-title" aria-label="일하는 방식은 결국 내가 가는 방향이 됩니다.">
+<span class="film-title-line">일하는 방식은</span>
+<span class="film-title-line"><em>결국</em> 내가 가는</span>
+<span class="film-title-line">방향이 됩니다.</span>
+</h1>
+<p class="film-lead">16개의 실제 업무 상황을 통해 내가 일을 시작하고, 판단하고, 협업하고, 마무리하는 방식을 읽어냅니다.</p>
 <div class="film-actions"><a class="primary-link film-cta" href="./diagnostic.html">내 업무 패턴 알아보기 →</a><div class="film-meta">16문항 · 약 3분<br>회원가입 없음 · 데이터 저장 없음</div></div>
 </div>
 <div class="film-stage" id="filmStage">
 <div class="film-frame" id="filmFrame">
-<div class="film-placeholder" id="filmPlaceholder"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=88" alt="함께 일하는 사람들의 모습"><video id="heroFilm" muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+<div class="film-media"><video id="heroFilm" autoplay muted loop playsinline preload="auto" aria-label="앞으로 날아가는 캐릭터 애니메이션"></video><div class="film-fallback" aria-hidden="true"><span>KIMKIM</span></div></div>
 <div class="film-shade"></div>
-<div class="film-topline"><span>업무 패턴 진단</span><span>01 — 04</span></div>
-<div class="film-caption"><small>우리는 모두 다르게 움직입니다.</small><strong>중요한 건<br>어떻게 움직이는지 아는 것.</strong></div>
+<div class="film-topline"><span>나의 업무 패턴</span><span>01 — 04</span></div>
+<div class="film-caption"><small>우리는 모두 다른 방식으로 앞으로 나아갑니다.</small><strong>나의 움직임을 알면,<br>다음 선택이 선명해집니다.</strong></div>
+<div class="film-status" id="filmStatus">브랜드 필름 재생 중</div>
 </div>
-<div class="film-float a">빠르게 실행하기</div><div class="film-float b">구조 만들기</div><div class="film-float c">완성도 높이기</div><div class="film-float d">사람 연결하기</div>
-<div class="film-hint">마우스를 올려보세요</div>
 </div>
 </div>
 </section>
@@ -47,6 +50,7 @@
 </section>
 <section class="final-cta"><p>나의 일하는 방식은 지금 어디를 향하고 있을까?</p><a class="primary-link" href="./diagnostic.html">진단 시작하기 →</a></section>
 </main>
-<script src="./assets/home.js?v=20260821-2"></script>
+<script src="./assets/video/hero-inline.js?v=20260821-4"></script>
+<script src="./assets/home.js?v=20260821-4"></script>
 </body>
 </html>

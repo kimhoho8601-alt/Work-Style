@@ -23,8 +23,10 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p assets/video
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36'
           curl -L --fail --retry 4 --retry-delay 2 \
-            'https://sck-my.sharepoint.com/:v:/g/personal/hongseop_kim_sc_or_kr/IQDXmFOCguFbTp2Oo7cFbRbFAUGeBWx7E0_I8OxiccYLUTI?download=1' \
+            -A "$UA" -c /tmp/sp.cookies -b /tmp/sp.cookies \
+            'https://sck-my.sharepoint.com/:v:/g/personal/hongseop_kim_sc_or_kr/IQCNdomjMTaDRqkKSqEK2yumAS8Qwxb7Z8cYMnsYEpDI0nk?download=1' \
             -o assets/video/hero.mp4
 
       - name: Verify exact source bytes
@@ -50,10 +52,10 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
+          import re
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
-          import re
-          s=re.sub(r'\./assets/video/hero\.mp4\?v=[^"\']+','./assets/video/hero.mp4?v=20260825-original720-v2',s)
+          s=re.sub(r'\./assets/video/hero\.mp4\?v=[^"\']+','./assets/video/hero.mp4?v=20260825-original720-v3',s)
           s=s.replace('aria-label="사무실 인터뷰 장면"','aria-label="빨간 조끼를 입은 직원의 사무실 인터뷰 장면"')
           p.write_text(s,encoding='utf-8')
           PY

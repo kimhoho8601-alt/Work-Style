@@ -1,4 +1,4 @@
-name: Assemble hero video
+name: Replace hero with exact source
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  assemble:
+  replace:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -18,96 +18,52 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install ffmpeg
-        shell: bash
-        run: |
-          set -euo pipefail
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg
-
-      - name: Recover source MP4 from inline asset
-        shell: bash
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          import base64, re
-          from pathlib import Path
-          src = Path('assets/video/hero-inline.js').read_text(encoding='utf-8')
-          m = re.search(r"window\.__KIMKIM_HERO_VIDEO='([^']+)'", src)
-          if not m:
-              raise SystemExit('inline hero base64 not found')
-          data = base64.b64decode(m.group(1), validate=True)
-          Path('/tmp/hero-source.mp4').write_bytes(data)
-          if b'ftyp' not in data[:32]:
-              raise SystemExit('decoded data is not an MP4')
-          print('source bytes:', len(data))
-          PY
-
-      - name: Create 1280x720 web MP4
+      - name: Download exact uploaded interview MP4
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p assets/video
-          ffmpeg -hide_banner -loglevel error -y \
-            -i /tmp/hero-source.mp4 \
-            -vf "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2" \
-            -an -c:v libx264 -preset medium -crf 24 -pix_fmt yuv420p -movflags +faststart \
-            assets/video/hero.mp4
-          test -s assets/video/hero.mp4
-          ffprobe -v error -select_streams v:0 -show_entries stream=width,height,codec_name -of default=noprint_wrappers=1 assets/video/hero.mp4
+          curl -L --fail --retry 4 --retry-delay 2 \
+            'https://sck-my.sharepoint.com/:v:/g/personal/hongseop_kim_sc_or_kr/IQCNdomjMTaDRqkKSqEK2yumAS8Qwxb7Z8cYMnsYEpDI0nk?download=1' \
+            -o assets/video/hero.mp4
 
-      - name: Switch homepage to direct MP4 playback
+      - name: Verify exact source bytes
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
-          p = Path('index.html')
-          s = p.read_text(encoding='utf-8')
-          s = s.replace('<video id="heroFilm" autoplay muted loop playsinline preload="auto" aria-label="앞으로 이동하는 캐릭터 애니메이션"></video>', '<video id="heroFilm" autoplay muted loop playsinline preload="auto" src="./assets/video/hero.mp4?v=20260825-final" aria-label="사무실 인터뷰 장면"></video>')
-          s = s.replace('<script src="./assets/video/hero-inline.js?v=20260821-4"></script>\n', '')
-          s = s.replace('./assets/home.js?v=20260821-4', './assets/home.js?v=20260825-final')
-          p.write_text(s, encoding='utf-8')
+          import hashlib
+          p=Path('assets/video/hero.mp4')
+          data=p.read_bytes()
+          digest=hashlib.sha256(data).hexdigest()
+          print('hero bytes:', len(data))
+          print('hero sha256:', digest)
+          assert len(data) == 1491887, len(data)
+          assert digest == '94af22bd16467e11ed85794917dc3857a3c10f871622501705e781099e522c11', digest
+          assert b'ftyp' in data[:32]
           PY
-          cat > assets/home.js <<'JS'
-          (function(){
-          'use strict';
-          var stage=document.getElementById('filmStage');
-          var frame=document.getElementById('filmFrame');
-          var video=document.getElementById('heroFilm');
-          var status=document.getElementById('filmStatus');
-          var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-          if(stage&&frame&&!reduce){
-            function move(e){var r=stage.getBoundingClientRect();var x=((e.clientX-r.left)/r.width-.5)*7;var y=((e.clientY-r.top)/r.height-.5)*-5;frame.style.transform='rotateX('+y+'deg) rotateY('+x+'deg) translateZ(0)';}
-            function leave(){frame.style.transform='rotateX(0deg) rotateY(0deg) translateZ(0)';}
-            stage.addEventListener('pointermove',move);
-            stage.addEventListener('pointerleave',leave);
-          }
-          if(video){
-            video.muted=true;
-            video.loop=true;
-            video.playsInline=true;
-            video.autoplay=true;
-            var reveal=function(){
-              video.classList.add('is-ready');
-              if(status)status.textContent='브랜드 필름 재생 중';
-              var p=video.play();
-              if(p&&p.catch){p.catch(function(){if(status)status.textContent='브랜드 필름';});}
-            };
-            if(video.readyState>=2){reveal();}
-            else{video.addEventListener('loadeddata',reveal,{once:true});}
-            video.addEventListener('error',function(){if(status)status.textContent='브랜드 필름';},{once:true});
-          }
-          })();
-          JS
-          rm -f assets/video/hero-inline.js
 
-      - name: Commit direct MP4 version
+      - name: Bump homepage video cache key
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html assets/home.js assets/video/hero.mp4 assets/video/hero-inline.js
-          git commit -m "Use direct 720p hero MP4 on homepage"
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('./assets/video/hero.mp4?v=20260825-final','./assets/video/hero.mp4?v=20260825-original720')
+          s=s.replace('aria-label="사무실 인터뷰 장면"','aria-label="빨간 조끼를 입은 직원의 사무실 인터뷰 장면"')
+          p.write_text(s,encoding='utf-8')
+          PY
+
+      - name: Commit exact source and remove one-time workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/assemble-hero.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Use exact final interview video as homepage hero'
           git push origin HEAD:main

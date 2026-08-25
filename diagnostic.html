@@ -3,29 +3,91 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f7f8">
 <title>KIMKIM 업무 패턴 진단</title>
-<link rel="stylesheet" href="./assets/app.css?v=20260820-4">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="./assets/app.css?v=20260825-5">
 </head>
 <body class="quiz-page">
-<nav class="site-nav"><div class="brand">KIMKIM</div><a class="back-link" href="./index.html">← 메인으로</a></nav>
+<nav class="site-nav">
+  <div class="brand">KIMKIM</div>
+  <a class="back-link" href="./index.html">← 메인으로</a>
+</nav>
+
 <main>
-<section id="quiz" class="quiz-shell">
-<div class="quiz-top"><div class="brand">진단</div><div class="progress-track"><i id="progress"></i></div><div class="quiz-counter" id="count">1 / 16</div></div>
-<div class="quiz-layout">
-<div id="questionCard" class="quiz-main"><div class="quiz-kicker" id="kicker">문항 01</div><h1 class="quiz-question" id="question">새 업무가 도착했습니다. 가장 먼저 하는 행동은?</h1><div class="quiz-options" id="options"><button type="button" class="quiz-option"><span>01</span><b>일단 손부터 대고 흐름을 만든다</b></button><button type="button" class="quiz-option"><span>02</span><b>전체 구조와 순서를 먼저 그린다</b></button><button type="button" class="quiz-option"><span>03</span><b>좋은 결과의 기준부터 확인한다</b></button><button type="button" class="quiz-option"><span>04</span><b>누가 무엇을 기대하는지 먼저 본다</b></button></div></div>
-<aside class="visual-rail" aria-hidden="true"><div class="visual-card a"><img id="visualA" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt=""></div><div class="visual-card b"><img id="visualB" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" alt=""></div><div class="visual-badge">나의<br>업무 패턴</div></aside>
-</div>
+<section id="quiz" class="quiz-shell" aria-label="업무 패턴 진단">
+  <div class="quiz-top">
+    <div class="brand">업무 패턴 진단</div>
+    <div class="progress-track" aria-hidden="true"><i id="progress"></i></div>
+    <div class="quiz-counter" id="count">1 / 16</div>
+  </div>
+
+  <div class="quiz-layout">
+    <div id="questionCard" class="quiz-main">
+      <div class="quiz-kicker" id="kicker">문항 01</div>
+      <h1 class="quiz-question" id="question">새 업무가 도착했습니다. 가장 먼저 하는 행동은?</h1>
+      <div class="quiz-options" id="options">
+        <button type="button" class="quiz-option"><span>01</span><b>일단 손부터 대고 흐름을 만든다</b></button>
+        <button type="button" class="quiz-option"><span>02</span><b>전체 구조와 순서를 먼저 그린다</b></button>
+        <button type="button" class="quiz-option"><span>03</span><b>좋은 결과의 기준부터 확인한다</b></button>
+        <button type="button" class="quiz-option"><span>04</span><b>누가 무엇을 기대하는지 먼저 본다</b></button>
+      </div>
+    </div>
+
+    <aside class="visual-rail" aria-hidden="true">
+      <div class="visual-card a"><img id="visualA" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt=""></div>
+      <div class="visual-card b"><img id="visualB" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" alt=""></div>
+      <div class="visual-badge">정답은 없습니다.<br>평소 나와 가까운 선택을 골라주세요.</div>
+    </aside>
+  </div>
 </section>
-<section id="result" class="result-page">
-<div class="report-shell">
-<div class="report-top"><div class="report-eyebrow">업무 패턴 진단 결과</div><h1 id="resultTitle" class="report-title"></h1><p id="resultDesc" class="report-lead"></p></div>
-<div class="report-summary"><div class="summary-box"><span>핵심 강점</span><strong id="strengthText"></strong></div><div class="summary-box"><span>주의할 패턴</span><strong id="riskText"></strong></div><div class="summary-box"><span>우선 권고</span><strong id="priorityText"></strong></div><div class="summary-box"><span>업무 습관 해석</span><strong id="habitText"></strong></div></div>
-<div class="report-grid"><section class="report-card dark"><h3>업무 패턴 분포</h3><div id="bars"></div></section><section class="report-card light"><h3>이번 주 실행 권고</h3><div id="actions"></div></section><section class="report-card white"><h3>종합 해석</h3><div class="insight-grid"><div class="insight"><span>주요 조합</span><strong id="mixText"></strong></div><div class="insight"><span>성과가 잘 나는 조건</span><strong>강점이 필요한 업무에 에너지를 집중하고, 반대 성향이 필요한 순간에는 의도적으로 보완 행동을 넣어보세요.</strong></div><div class="insight"><span>이번 주 관찰 포인트</span><strong>일을 시작할 때와 마무리할 때 내가 어떤 선택을 반복하는지 한 번만 기록해보세요.</strong></div></div></section></div>
-<div class="report-actions"><button class="report-btn" type="button" id="restartBtn">다시 진단하기</button><a class="report-btn alt" href="./index.html">메인으로 돌아가기</a></div>
-</div>
+
+<section id="result" class="result-page" aria-label="업무 패턴 진단 결과">
+  <div class="report-shell">
+    <div class="report-top">
+      <div class="report-eyebrow">업무 패턴 진단 결과</div>
+      <h1 id="resultTitle" class="report-title"></h1>
+      <p id="resultDesc" class="report-lead"></p>
+    </div>
+
+    <div class="report-summary">
+      <div class="summary-box"><span>핵심 강점</span><strong id="strengthText"></strong></div>
+      <div class="summary-box"><span>주의할 패턴</span><strong id="riskText"></strong></div>
+      <div class="summary-box"><span>우선 권고</span><strong id="priorityText"></strong></div>
+      <div class="summary-box"><span>업무 습관 해석</span><strong id="habitText"></strong></div>
+    </div>
+
+    <div class="report-grid">
+      <section class="report-card dark">
+        <h3>업무 패턴 분포</h3>
+        <div id="bars"></div>
+      </section>
+
+      <section class="report-card light">
+        <h3>이번 주 실행 권고</h3>
+        <div id="actions"></div>
+      </section>
+
+      <section class="report-card white">
+        <h3>종합 해석</h3>
+        <div class="insight-grid">
+          <div class="insight"><span>주요 조합</span><strong id="mixText"></strong></div>
+          <div class="insight"><span>성과가 잘 나는 조건</span><strong>강점이 필요한 업무에 에너지를 집중하고, 반대 성향이 필요한 순간에는 의도적으로 보완 행동을 넣어보세요.</strong></div>
+          <div class="insight"><span>이번 주 관찰 포인트</span><strong>일을 시작할 때와 마무리할 때 내가 어떤 선택을 반복하는지 한 번만 기록해보세요.</strong></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="report-actions">
+      <button class="report-btn" type="button" id="restartBtn">다시 진단하기</button>
+      <a class="report-btn alt" href="./index.html">메인으로 돌아가기</a>
+    </div>
+  </div>
 </section>
 </main>
-<noscript><div style="position:fixed;left:16px;right:16px;bottom:16px;z-index:100;padding:14px;border:2px solid #151515;background:#ffb4b4;font-weight:800">현재 브라우저에서 자바스크립트가 꺼져 있어 답변 선택이 동작하지 않습니다.</div></noscript>
+
+<noscript><div style="position:fixed;left:16px;right:16px;bottom:16px;z-index:100;padding:14px;border:1px solid #111318;background:#fff;font-weight:700">현재 브라우저에서 자바스크립트가 꺼져 있어 답변 선택이 동작하지 않습니다.</div></noscript>
 <script src="./assets/quiz.js?v=20260820-4" defer></script>
 </body>
 </html>

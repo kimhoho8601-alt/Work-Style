@@ -1,0 +1,104 @@
+name: Assemble hero video
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/assemble-hero.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch temporary video branch
+        run: git fetch origin temp-video-upload-2:refs/remotes/origin/temp-video-upload-2
+
+      - name: Assemble MP4
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/video
+          : > /tmp/hero.b64
+          for i in $(seq -w 0 15); do
+            git show "origin/temp-video-upload-2:assets/video/.upload/part${i}.b64" >> /tmp/hero.b64
+          done
+          tr -d '\n\r ' < /tmp/hero.b64 | base64 -d > assets/video/hero.mp4
+          test -s assets/video/hero.mp4
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('assets/video/hero.mp4')
+          data=p.read_bytes()
+          assert len(data) > 50000, len(data)
+          assert b'ftyp' in data[:32], data[:32]
+          print('hero.mp4 bytes:', len(data))
+          PY
+
+      - name: Switch homepage to direct MP4 playback
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('<video id="heroFilm" autoplay muted loop playsinline preload="auto" aria-label="앞으로 이동하는 캐릭터 애니메이션"></video>', '<video id="heroFilm" autoplay muted loop playsinline preload="auto" src="./assets/video/hero.mp4?v=20260825-1" aria-label="사무실 인터뷰 장면"></video>')
+          s=s.replace('<script src="./assets/video/hero-inline.js?v=20260821-4"></script>\n','')
+          s=s.replace('./assets/home.js?v=20260821-4','./assets/home.js?v=20260825-1')
+          p.write_text(s, encoding='utf-8')
+          PY
+          cat > assets/home.js <<'JS'
+          (function(){
+          'use strict';
+          var stage=document.getElementById('filmStage');
+          var frame=document.getElementById('filmFrame');
+          var video=document.getElementById('heroFilm');
+          var status=document.getElementById('filmStatus');
+          var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          if(stage&&frame&&!reduce){
+            function move(e){
+              var r=stage.getBoundingClientRect();
+              var x=((e.clientX-r.left)/r.width-.5)*7;
+              var y=((e.clientY-r.top)/r.height-.5)*-5;
+              frame.style.transform='rotateX('+y+'deg) rotateY('+x+'deg) translateZ(0)';
+            }
+            function leave(){frame.style.transform='rotateX(0deg) rotateY(0deg) translateZ(0)';}
+            stage.addEventListener('pointermove',move);
+            stage.addEventListener('pointerleave',leave);
+          }
+
+          if(video){
+            video.muted=true;
+            video.loop=true;
+            video.playsInline=true;
+            video.autoplay=true;
+            var reveal=function(){
+              video.classList.add('is-ready');
+              if(status)status.textContent='브랜드 필름 재생 중';
+              var p=video.play();
+              if(p&&p.catch){p.catch(function(){if(status)status.textContent='브랜드 필름';});}
+            };
+            if(video.readyState>=2){reveal();}
+            else{video.addEventListener('loadeddata',reveal,{once:true});}
+            video.addEventListener('error',function(){if(status)status.textContent='브랜드 필름';},{once:true});
+          }
+          })();
+          JS
+          rm -f assets/video/hero-inline.js
+
+      - name: Commit final video and cleanup workflow
+        shell: bash
+        run: |
+          rm -f .github/workflows/assemble-hero.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Use direct 720p hero MP4 on homepage"
+          git push origin HEAD:main

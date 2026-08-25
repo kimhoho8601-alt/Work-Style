@@ -26,14 +26,20 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p assets/video
-          : > assets/video/hero.mp4
-          for i in $(seq -w 0 15); do
-            git show "origin/temp-video-upload-2:assets/video/.upload/part${i}.b64" | tr -d '\n\r ' | base64 -d >> assets/video/hero.mp4
-          done
-          test -s assets/video/hero.mp4
           python - <<'PY'
+          import base64, re, subprocess
           from pathlib import Path
+          out=bytearray()
+          for i in range(16):
+              path=f'origin/temp-video-upload-2:assets/video/.upload/part{i:02d}.b64'
+              raw=subprocess.check_output(['git','show',path])
+              s=raw.decode('ascii',errors='ignore')
+              s=''.join(re.findall(r'[A-Za-z0-9+/=]',s))
+              s=s.rstrip('=')
+              s += '=' * ((4-len(s)%4)%4)
+              out.extend(base64.b64decode(s, validate=False))
           p=Path('assets/video/hero.mp4')
+          p.write_bytes(out)
           data=p.read_bytes()
           assert len(data) > 50000, len(data)
           assert b'ftyp' in data[:32], data[:32]

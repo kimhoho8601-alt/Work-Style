@@ -26,11 +26,10 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p assets/video
-          : > /tmp/hero.b64
+          : > assets/video/hero.mp4
           for i in $(seq -w 0 15); do
-            git show "origin/temp-video-upload-2:assets/video/.upload/part${i}.b64" >> /tmp/hero.b64
+            git show "origin/temp-video-upload-2:assets/video/.upload/part${i}.b64" | tr -d '\n\r ' | base64 -d >> assets/video/hero.mp4
           done
-          tr -d '\n\r ' < /tmp/hero.b64 | base64 -d > assets/video/hero.mp4
           test -s assets/video/hero.mp4
           python - <<'PY'
           from pathlib import Path

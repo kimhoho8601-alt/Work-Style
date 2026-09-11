@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f7f8">
+<title>KIMKIM 팀 워크스타일</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="./assets/app.css?v=20260911-1">
+<link rel="stylesheet" href="./assets/workshop.css?v=20260911-1">
+</head>
+<body class="workshop-page">
+<nav class="site-nav">
+  <a class="brand-wrap" href="./index.html" aria-label="KIMKIM 홈"><span class="brand">KIMKIM</span><span class="brand-desc">팀 워크스타일</span></a>
+  <a class="back-link" href="./index.html">← 메인으로</a>
+</nav>
+
+<main>
+<section id="entry" class="workshop-entry">
+  <div class="entry-copy">
+    <p class="workshop-kicker">TEAM WORKSTYLE</p>
+    <h1><span>혼자 보면 유형,</span><span><em>함께 보면 팀</em>이 됩니다.</span></h1>
+    <p class="entry-lead">이름을 입력하고 평소 나와 가장 가까운 선택을 골라주세요. 진단을 마치면 내 결과를 먼저 확인하고, 진행자가 팀 전체의 조합을 함께 열어볼 수 있습니다.</p>
+    <form id="entryForm" class="name-form">
+      <label for="participantName">내 이름</label>
+      <div class="name-row">
+        <input id="participantName" maxlength="30" autocomplete="name" placeholder="이름을 입력하세요" required>
+        <button type="submit">진단 시작 <span aria-hidden="true">→</span></button>
+      </div>
+      <p id="entryStatus" class="form-status" aria-live="polite">결과는 워크숍 진행을 위해 팀 결과에만 집계됩니다.</p>
+    </form>
+  </div>
+  <div class="entry-orbit" aria-hidden="true">
+    <div class="orbit-core"><span>우리 팀</span><strong>?</strong></div>
+    <div class="orbit-node node-a">실행</div><div class="orbit-node node-b">설계</div><div class="orbit-node node-c">완성도</div><div class="orbit-node node-d">조율</div>
+  </div>
+</section>
+
+<section id="quiz" class="quiz-shell workshop-quiz" aria-label="워크스타일 진단" hidden>
+  <div class="quiz-top">
+    <div class="brand">팀 워크스타일</div>
+    <div class="progress-track" aria-hidden="true"><i id="progress"></i></div>
+    <div class="quiz-counter" id="count">1 / 16</div>
+  </div>
+  <div class="quiz-layout">
+    <div id="questionCard" class="quiz-main">
+      <div class="quiz-kicker" id="kicker">문항 01</div>
+      <h1 class="quiz-question" id="question"></h1>
+      <div class="quiz-options" id="options"></div>
+    </div>
+    <aside class="workshop-rail">
+      <span id="railName"></span>
+      <strong>정답은 없습니다.</strong>
+      <p>업무에서 실제로 반복하는 모습에 더 가까운 쪽을 선택해주세요.</p>
+    </aside>
+  </div>
+</section>
+
+<section id="result" class="result-page workshop-result" aria-label="내 워크스타일 결과">
+  <div class="report-shell">
+    <div class="result-person"><span id="resultName"></span>님의 워크스타일</div>
+    <div class="report-top">
+      <div class="report-eyebrow">개인 결과</div>
+      <h1 id="resultTitle" class="report-title"></h1>
+      <p id="resultDesc" class="report-lead"></p>
+    </div>
+    <div class="report-summary">
+      <div class="summary-box"><span>핵심 강점</span><strong id="strengthText"></strong></div>
+      <div class="summary-box"><span>주의할 패턴</span><strong id="riskText"></strong></div>
+      <div class="summary-box"><span>우선 권고</span><strong id="priorityText"></strong></div>
+      <div class="summary-box"><span>나의 조합</span><strong id="mixText"></strong></div>
+    </div>
+    <div class="report-grid">
+      <section class="report-card"><h3>업무 패턴 분포</h3><div id="bars"></div></section>
+      <section class="report-card"><h3>이번 주 실행 권고</h3><div id="actions"></div></section>
+      <section class="report-card white team-waiting">
+        <div><span class="waiting-dot"></span><strong id="saveStatus">팀 결과에 반영 중</strong></div>
+        <p>모두 완료하면 진행자가 팀 케미맵을 열어봅니다. 누가 나와 뜻밖의 시너지를 만들지 기대해보세요.</p>
+      </section>
+    </div>
+    <div class="report-actions"><a class="report-btn alt" href="./index.html">메인으로</a></div>
+  </div>
+</section>
+</main>
+<script src="./assets/workshop.js?v=20260911-1"></script>
+</body>
+</html>

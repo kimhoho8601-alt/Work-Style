@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="./assets/app.css?v=20260911-3">
 <link rel="stylesheet" href="./assets/workshop.css?v=20260911-3">
 <link rel="stylesheet" href="./assets/presenter-v2.css?v=20260911-5">
-<link rel="stylesheet" href="./assets/presenter-v3.css?v=20260911-7">
+<link rel="stylesheet" href="./assets/presenter-v3.css?v=20260911-9">
 </head>
 <body class="presenter-page">
 <nav class="site-nav">
@@ -42,7 +42,7 @@
     <div class="dashboard-actions">
       <button id="refreshBtn" class="ghost-btn" type="button">새로고침</button>
       <button id="excelBtn" class="ghost-btn" type="button">엑셀 저장</button>
-      <button id="imageBtn" class="ghost-btn" type="button">결과 이미지 저장</button>
+      <button id="imageBtn" class="ghost-btn" type="button">결과 이미지 3장 저장</button>
       <button id="resetBtn" class="danger-btn" type="button">데이터 초기화</button>
     </div>
   </header>
@@ -110,7 +110,7 @@
               <div>
                 <span class="page-index">03 / 03</span>
                 <h3>재미로 보는<br>시너지 유형별 추천 페어</h3>
-                <p>6가지 시너지 유형마다 실제 구성원 중 눈에 띄는 2인 조합을 최대 3팀씩 보여줍니다. 같은 유형 안에서도 보조성향에 따라 해석이 달라집니다.</p>
+                <p>6가지 시너지 유형마다 공통 해석은 한 번만 보여주고, 실제 구성원 중 눈에 띄는 2인 조합을 최대 3팀씩 가로로 정리합니다.</p>
               </div>
               <a class="summary-prev" href="#summaryPage2">← 관계도로</a>
             </div>
@@ -142,7 +142,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script src="./assets/presenter.js?v=20260911-7"></script>
-<script src="./assets/relationship-position-fix.js?v=20260911-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="./assets/presenter.js?v=20260911-9"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css">
 <link rel="stylesheet" href="./assets/app.css?v=20260911-3">
 <link rel="stylesheet" href="./assets/workshop.css?v=20260911-3">
-<link rel="stylesheet" href="./assets/presenter-v2.css?v=20260911-4">
+<link rel="stylesheet" href="./assets/presenter-v2.css?v=20260911-5">
 </head>
 <body class="presenter-page">
 <nav class="site-nav">
@@ -63,47 +63,66 @@
         <p class="workshop-kicker">TEAM CHEMISTRY</p>
         <h2>사람이 모였으니,<br><em>이제 케미를 볼 차례.</em></h2>
         <p>구성원의 1·2순위 성향을 함께 보고, 서로 다른 강점이 만났을 때 생기는 팀의 조합을 펼쳐봅니다.</p>
+        <p class="play-note">※ 재미로 보는 워크숍용 해석입니다. 개인의 역량이나 성과를 평가하는 결과가 아니에요.</p>
         <button id="summaryBtn" type="button" class="summary-btn">결과 요약하기 <span>→</span></button>
       </div>
 
       <div id="teamSummary" class="team-summary team-summary-v2" hidden>
         <div class="team-summary-hero">
           <div>
-            <span class="summary-label">팀 워크숍 결과 요약</span>
+            <span class="summary-label">TEAM WORKSHOP · FOR FUN</span>
             <h2 id="teamHeadline"></h2>
             <p id="teamSummaryLead">서로 다른 일하는 방식이 어떻게 맞물리는지 한눈에 살펴보세요.</p>
+            <p class="play-note hero-play-note">※ 재미로 보는 팀 케미입니다. 순위나 우열이 아니라 워크숍 대화를 위한 참고용이에요.</p>
           </div>
           <button id="rerunBtn" type="button" class="ghost-btn">다시 펼치기</button>
         </div>
 
-        <div class="workshop-insight-grid">
-          <section class="insight-panel roster-panel">
-            <header class="insight-panel-head">
-              <div class="panel-icon" aria-hidden="true">●●</div>
-              <div><h3>유형별 구성원</h3><p>각자의 스타일이 모여 우리 팀의 색이 됩니다.</p></div>
-            </header>
+        <div class="summary-deck">
+          <section id="summaryPage1" class="summary-page roster-page">
+            <div class="summary-page-head">
+              <div>
+                <span class="page-index">01 / 03</span>
+                <h3>우리 팀은<br>이렇게 일해요.</h3>
+                <p>유형별로 누가 함께 있는지 크게 펼쳐봅니다. 어느 유형이 많고 적은지보다, 어떤 강점이 모여 있는지 보는 페이지예요.</p>
+              </div>
+              <a class="summary-next" href="#summaryPage2">다음 · 관계도 보기 →</a>
+            </div>
             <div id="typeRosters" class="type-rosters"></div>
           </section>
 
-          <section class="insight-panel relationship-panel">
-            <header class="insight-panel-head">
-              <div class="panel-icon network-icon" aria-hidden="true">◇</div>
-              <div><h3>잘 맞는 유형 관계도</h3><p>서로를 보완할 때 시너지가 커지는 조합입니다.</p></div>
-            </header>
-            <div id="relationshipMap" class="relationship-map"></div>
-            <div class="relationship-note"><span>TIP</span> 베스트 조합에 선정된 유형 연결은 더 진하게 표시됩니다.</div>
+          <section id="summaryPage2" class="summary-page relationship-page">
+            <div class="summary-page-head">
+              <div>
+                <span class="page-index">02 / 03</span>
+                <h3>다른 방식이 만나면<br>이런 케미가 생겨요.</h3>
+                <p>네 가지 유형 사이의 대표적인 보완 관계를 보여줍니다. 파란 선은 이번 팀의 케미 PICK에 실제 포함된 유형 조합이에요.</p>
+              </div>
+              <div class="page-actions"><a class="summary-prev" href="#summaryPage1">← 이전</a><a class="summary-next" href="#summaryPage3">다음 · 케미 PICK →</a></div>
+            </div>
+            <div class="relationship-stage-large">
+              <div id="relationshipMap" class="relationship-map"></div>
+            </div>
+            <div class="relationship-note"><span>TIP</span> 이 관계도 역시 업무 스타일을 대화하기 위한 참고 그림이며, 특정 유형이 더 우수하다는 의미는 아닙니다.</div>
           </section>
 
-          <section class="insight-panel top-pairs-panel">
-            <header class="insight-panel-head">
-              <div class="panel-icon trophy-icon" aria-hidden="true">★</div>
-              <div><h3>우리 팀 베스트 조합 TOP 3</h3><p>1·2순위 성향이 서로 보완되는 조합을 우선 골랐어요.</p></div>
-            </header>
+          <section id="summaryPage3" class="summary-page picks-page">
+            <div class="summary-page-head">
+              <div>
+                <span class="page-index">03 / 03</span>
+                <h3>재미로 보는<br>우리 팀 케미 PICK 3</h3>
+                <p>서로의 주성향과 보조성향이 자연스럽게 맞물리는 조합 세 개를 골랐어요. ‘1위’가 아니라, 워크숍에서 이야기해보기 좋은 세 가지 조합입니다.</p>
+              </div>
+              <a class="summary-prev" href="#summaryPage2">← 관계도로</a>
+            </div>
             <div id="topPairs" class="top-pairs"></div>
+            <div class="pick-method-note">
+              <strong>어떻게 골랐나요?</strong>
+              <p>상호 보완되는 1·2순위 교차를 가장 크게 보고, 그다음 주·보조 성향의 균형, 마지막으로 서로 다른 주성향 여부를 참고합니다. 같은 사람이 여러 PICK에 반복되지 않고, 가능하면 서로 다른 케미 유형이 나오도록 구성합니다.</p>
+            </div>
+            <div id="teamInsights" class="team-insights workshop-insights"></div>
           </section>
         </div>
-
-        <div id="teamInsights" class="team-insights workshop-insights"></div>
       </div>
     </section>
   </div>
@@ -124,6 +143,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script src="./assets/presenter.js?v=20260911-4"></script>
+<script src="./assets/presenter.js?v=20260911-5"></script>
 </body>
 </html>

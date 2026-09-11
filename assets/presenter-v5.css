@@ -1,0 +1,243 @@
+/* Page 03 cleanup: top header + full-width horizontal synergy modules */
+.summary-page.picks-page{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  padding:44px 0 72px!important;
+}
+
+.summary-page.picks-page>.summary-page-head{
+  position:static!important;
+  top:auto!important;
+  width:100%!important;
+  max-width:none!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:end!important;
+  gap:32px!important;
+  margin:0 0 28px!important;
+  padding:0 0 24px!important;
+  border-bottom:1px solid #111318!important;
+}
+
+.summary-page.picks-page>.summary-page-head>div:first-child{
+  max-width:980px!important;
+}
+
+.summary-page.picks-page>.summary-page-head h3{
+  max-width:none!important;
+  margin:0!important;
+  font-size:clamp(38px,4.2vw,62px)!important;
+  line-height:1.02!important;
+  letter-spacing:-.05em!important;
+  word-break:keep-all!important;
+  text-wrap:balance;
+}
+
+.summary-page.picks-page>.summary-page-head p{
+  max-width:880px!important;
+  margin:16px 0 0!important;
+  font-size:14px!important;
+  line-height:1.7!important;
+  color:#68707c!important;
+  word-break:keep-all!important;
+  text-wrap:pretty;
+}
+
+.summary-page.picks-page .top-pairs{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:24px!important;
+  width:100%!important;
+}
+
+.summary-page.picks-page .synergy-family{
+  display:grid!important;
+  grid-template-columns:260px minmax(0,1fr)!important;
+  grid-template-areas:
+    "family-head family-analysis"
+    "family-head family-pairs"!important;
+  width:100%!important;
+  border:1px solid #d9dde4!important;
+  background:#fff!important;
+  overflow:hidden!important;
+}
+
+.summary-page.picks-page .synergy-family-head{
+  grid-area:family-head!important;
+  min-width:0!important;
+  padding:26px 24px!important;
+  border-right:1px solid #e2e6ec!important;
+  border-bottom:0!important;
+  background:#f8f9fb!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+}
+
+.summary-page.picks-page .synergy-family-head h4{
+  margin:0!important;
+  font-size:34px!important;
+  line-height:1.04!important;
+  letter-spacing:-.04em!important;
+  word-break:keep-all!important;
+}
+
+.summary-page.picks-page .synergy-family-head p{
+  margin:12px 0 0!important;
+  font-size:13px!important;
+  line-height:1.6!important;
+  word-break:keep-all!important;
+}
+
+.summary-page.picks-page .synergy-family-head em{
+  margin-top:18px!important;
+  width:100%!important;
+  max-width:none!important;
+  padding:10px 11px!important;
+  font-size:11px!important;
+  line-height:1.45!important;
+  word-break:keep-all!important;
+}
+
+.summary-page.picks-page .synergy-analysis{
+  grid-area:family-analysis!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  border-bottom:1px solid #e2e6ec!important;
+}
+
+.summary-page.picks-page .synergy-analysis>div{
+  padding:18px 20px!important;
+  min-width:0!important;
+}
+
+.summary-page.picks-page .synergy-analysis p{
+  font-size:12px!important;
+  line-height:1.62!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+}
+
+.summary-page.picks-page .synergy-pair-grid{
+  grid-area:family-pairs!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  background:#fbfcfd!important;
+}
+
+.summary-page.picks-page .compact-pair{
+  min-width:0!important;
+  min-height:118px!important;
+  padding:22px 24px!important;
+  border-right:1px solid #e2e6ec!important;
+  border-bottom:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  gap:14px!important;
+  background:#fbfcfd!important;
+}
+
+.summary-page.picks-page .compact-pair:last-child{
+  border-right:0!important;
+}
+
+.compact-pair-label{
+  align-self:flex-start;
+  display:inline-flex;
+  align-items:center;
+  min-height:26px;
+  padding:0 9px;
+  border-radius:999px;
+  background:#111318;
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.05em;
+  white-space:nowrap;
+}
+
+.compact-pair-names{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+}
+
+.compact-pair-names strong{
+  font-size:22px;
+  line-height:1.15;
+  letter-spacing:-.03em;
+  word-break:keep-all;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.compact-pair-names span{
+  flex:0 0 auto;
+  color:#3151ff;
+  font-size:18px;
+  font-weight:900;
+}
+
+.summary-page.picks-page .pair-people,
+.summary-page.picks-page .pair-card-top,
+.summary-page.picks-page .pair-score-note,
+.summary-page.picks-page .pair-person,
+.summary-page.picks-page .pair-avatar,
+.summary-page.picks-page .pair-x{
+  display:none!important;
+}
+
+@media(max-width:1180px){
+  .summary-page.picks-page .synergy-family{
+    grid-template-columns:1fr!important;
+    grid-template-areas:
+      "family-head"
+      "family-analysis"
+      "family-pairs"!important;
+  }
+  .summary-page.picks-page .synergy-family-head{
+    border-right:0!important;
+    border-bottom:1px solid #e2e6ec!important;
+  }
+}
+
+@media(max-width:900px){
+  .summary-page.picks-page>.summary-page-head{
+    grid-template-columns:1fr!important;
+    align-items:start!important;
+  }
+  .summary-page.picks-page .synergy-analysis{
+    grid-template-columns:1fr!important;
+  }
+  .summary-page.picks-page .synergy-pair-grid{
+    grid-template-columns:1fr!important;
+  }
+  .summary-page.picks-page .compact-pair{
+    border-right:0!important;
+    border-bottom:1px solid #e2e6ec!important;
+  }
+  .summary-page.picks-page .compact-pair:last-child{
+    border-bottom:0!important;
+  }
+}
+
+.exporting-pages .summary-page.picks-page{
+  width:1600px!important;
+  max-width:none!important;
+  padding:40px 46px 50px!important;
+}
+
+.exporting-pages .summary-page.picks-page>.summary-page-head{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+}
+
+.exporting-pages .summary-page.picks-page .summary-prev,
+.exporting-pages .summary-page.picks-page .summary-next{
+  display:none!important;
+}

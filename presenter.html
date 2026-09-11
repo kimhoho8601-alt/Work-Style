@@ -24,8 +24,8 @@
 <section id="presenterGate" class="presenter-gate">
   <div class="gate-card">
     <p class="workshop-kicker">PRESENTER MODE</p>
-    <h1>팀 결과를<br>열어볼까요?</h1>
-    <p>진행자 코드를 입력하면 완료 인원과 팀 워크스타일을 확인할 수 있습니다.</p>
+    <h1>조직 결과를<br>열어볼까요?</h1>
+    <p>진행자 코드를 입력하면 완료 인원과 조직 워크스타일을 확인할 수 있습니다.</p>
     <form id="presenterForm" class="presenter-form">
       <label for="presenterCode">진행자 코드</label>
       <input id="presenterCode" type="password" inputmode="numeric" autocomplete="current-password" required placeholder="4자리 코드">
@@ -36,7 +36,7 @@
 </section>
 <section id="dashboard" class="presenter-dashboard" hidden>
   <header class="dashboard-head">
-    <div><p class="workshop-kicker">LIVE WORKSHOP</p><h1 id="sessionTitle">팀 워크스타일 워크숍</h1><p><strong id="memberCount">0명</strong>이 진단을 완료했습니다.</p></div>
+    <div><p class="workshop-kicker">LIVE WORKSHOP</p><h1 id="sessionTitle">조직 워크스타일 워크숍</h1><p><strong id="memberCount">0명</strong>이 진단을 완료했습니다.</p></div>
     <div class="dashboard-actions">
       <button id="refreshBtn" class="ghost-btn" type="button">새로고침</button>
       <button id="excelBtn" class="ghost-btn" type="button">엑셀 저장</button>
@@ -47,20 +47,20 @@
   <div id="exportArea">
     <div class="dashboard-grid live-overview">
       <section class="dashboard-card member-card"><div class="card-head"><span>완료한 구성원</span><strong id="completionBadge">0</strong></div><div id="memberList" class="member-list"><p class="empty-state">아직 완료한 인원이 없습니다.</p></div></section>
-      <section class="dashboard-card distribution-card"><div class="card-head"><span>팀 유형 분포</span><strong>4 TYPES</strong></div><div id="distribution" class="distribution"></div></section>
+      <section class="dashboard-card distribution-card"><div class="card-head"><span>조직 유형 분포</span><strong>4 TYPES</strong></div><div id="distribution" class="distribution"></div></section>
     </div>
     <section class="summary-stage">
       <div class="summary-intro" id="summaryIntro">
-        <p class="workshop-kicker">TEAM CHEMISTRY</p>
+        <p class="workshop-kicker">ORGANIZATION CHEMISTRY</p>
         <h2>사람이 모였으니,<br><em>이제 케미를 볼 차례.</em></h2>
-        <p>구성원의 1·2순위 성향을 함께 보고, 서로 다른 강점이 만났을 때 생기는 팀의 조합을 펼쳐봅니다.</p>
+        <p>구성원의 1·2순위 성향을 함께 보고, 서로 다른 강점이 만났을 때 생기는 조직의 조합을 펼쳐봅니다.</p>
         <p class="play-note">※ 재미로 보는 워크숍용 해석입니다. 개인의 역량이나 성과를 평가하는 결과가 아니에요.</p>
         <button id="summaryBtn" type="button" class="summary-btn">결과 요약하기 <span>→</span></button>
       </div>
       <div id="teamSummary" class="team-summary team-summary-v2" hidden>
-        <div class="team-summary-hero"><div><span class="summary-label">TEAM WORKSHOP · FOR FUN</span><h2 id="teamHeadline"></h2><p id="teamSummaryLead">서로 다른 일하는 방식이 어떻게 맞물리는지 한눈에 살펴보세요.</p><p class="play-note hero-play-note">※ 재미로 보는 팀 케미입니다. 순위나 우열이 아니라 워크숍 대화를 위한 참고용이에요.</p></div><button id="rerunBtn" type="button" class="ghost-btn">다시 펼치기</button></div>
+        <div class="team-summary-hero"><div><span class="summary-label">ORGANIZATION WORKSHOP · FOR FUN</span><h2 id="teamHeadline"></h2><p id="teamSummaryLead">서로 다른 일하는 방식이 어떻게 맞물리는지 한눈에 살펴보세요.</p><p class="play-note hero-play-note">※ 재미로 보는 조직 케미입니다. 순위나 우열이 아니라 워크숍 대화를 위한 참고용이에요.</p></div><button id="rerunBtn" type="button" class="ghost-btn">다시 펼치기</button></div>
         <div class="summary-deck">
-          <section id="summaryPage1" class="summary-page roster-page"><div class="summary-page-head"><div><span class="page-index">01 / 03</span><h3>우리 팀은<br>이렇게 일해요.</h3><p>유형별로 누가 함께 있는지 크게 펼쳐봅니다. 어느 유형이 많고 적은지보다, 어떤 강점이 모여 있는지 보는 페이지예요.</p></div><a class="summary-next" href="#summaryPage2">다음 · 관계도 보기 →</a></div><div id="typeRosters" class="type-rosters"></div></section>
+          <section id="summaryPage1" class="summary-page roster-page"><div class="summary-page-head"><div><span class="page-index">01 / 03</span><h3>우리 조직은<br>이렇게 일해요.</h3><p>유형별로 누가 함께 있는지 크게 펼쳐봅니다. 어느 유형이 많고 적은지보다, 어떤 강점이 모여 있는지 보는 페이지예요.</p></div><a class="summary-next" href="#summaryPage2">다음 · 관계도 보기 →</a></div><div id="typeRosters" class="type-rosters"></div></section>
           <section id="summaryPage2" class="summary-page relationship-page"><div class="summary-page-head"><div><span class="page-index">02 / 03</span><h3>다른 방식이 만나면<br>이런 케미가 생겨요.</h3><p>네 가지 유형 사이의 대표적인 보완 관계를 보여줍니다. 실제 참여자 조합이 가능한 관계는 파란 선으로 강조됩니다.</p></div><div class="page-actions"><a class="summary-prev" href="#summaryPage1">← 이전</a><a class="summary-next" href="#summaryPage3">다음 · 시너지 페어 →</a></div></div><div class="relationship-stage-large"><div id="relationshipMap" class="relationship-map"></div></div><div class="relationship-note"><span>TIP</span> 이 관계도는 업무 스타일을 대화하기 위한 참고 그림이며, 특정 유형이 더 우수하다는 의미는 아닙니다.</div></section>
           <section id="summaryPage3" class="summary-page picks-page"><div class="summary-page-head"><div><span class="page-index">03 / 03</span><h3>재미로 보는 시너지 유형별 추천 페어</h3><p>6가지 시너지 유형마다 공통 해석은 한 번만 보여주고, 실제 구성원 중 눈에 띄는 2인 조합을 최대 3팀씩 이름만 간결하게 정리합니다.</p></div><a class="summary-prev" href="#summaryPage2">← 관계도로</a></div><div id="topPairs" class="top-pairs"></div><div class="pick-method-note"><strong>어떻게 추천하나요?</strong><p>각 시너지 유형 안에서 서로의 주성향을 보조성향으로 갖고 있는지와 주·보조성향의 연결 정도를 참고합니다. 평가 점수가 아니라 워크숍에서 대화를 시작하기 위한 조합 추천입니다.</p></div><div id="teamInsights" class="team-insights workshop-insights"></div></section>
         </div>
@@ -76,5 +76,6 @@
 <script src="./assets/presenter.js?v=20260911-9"></script>
 <script src="./assets/presenter-cleanup.js?v=20260911-11"></script>
 <script src="./assets/relationship-wide.js?v=20260911-12"></script>
+<script src="./assets/org-copy.js?v=20260911-1"></script>
 </body>
 </html>

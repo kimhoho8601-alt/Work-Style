@@ -26,34 +26,34 @@ const SYNERGIES=[
 
 const BASE_ANALYSIS={
   'execute-plan':{
-    strength:'실행 주도형의 빠른 판단과 구조 설계형의 우선순위·단계화 능력이 결합되면, 아이디어를 오래 붙잡기보다 빠르게 착수하면서도 방향을 잃지 않는 실행 구조를 만들기 쉽습니다.',
-    work:'신규 프로젝트 착수, 일정이 촉박한 기획, 빠른 의사결정 뒤 실행계획을 구체화해야 하는 업무에 강점이 있습니다.',
-    risk:'실행이 합의보다 앞서거나 설계가 길어져 착수가 늦어질 수 있습니다. 시작 시점과 ‘필수로 정리할 범위’를 먼저 합의하면 균형이 좋아집니다.'
+    strength:'실행 주도형의 빠른 판단과 구조 설계형의 우선순위·단계화 능력이 결합되면, 빠르게 착수하면서도 방향과 순서를 놓치지 않는 실행 구조를 만들기 쉽습니다.',
+    work:'신규 프로젝트 착수, 일정이 촉박한 기획, 빠른 의사결정 이후 실행계획을 구체화해야 하는 업무에 특히 잘 맞습니다.',
+    risk:'실행이 합의보다 앞서거나 설계가 길어질 수 있습니다. 시작 시점과 반드시 정리할 범위를 먼저 합의하면 두 강점이 균형을 이루기 좋습니다.'
   },
   'execute-quality':{
     strength:'실행 주도형이 초반 속도와 추진력을 만들고 완성도 집중형이 오류·누락·세부 기준을 보완하면, 빠른 시도와 안정적인 결과를 동시에 확보하기 좋습니다.',
-    work:'짧은 일정의 산출물 제작, 시범 운영, 빠른 초안 뒤 품질 검수가 필요한 보고·콘텐츠·프로젝트에 잘 맞습니다.',
-    risk:'한쪽은 “일단 내보자”, 다른 한쪽은 “조금 더 다듬자”에 머물 수 있습니다. 중간 검토 시점과 최종 완료 기준을 사전에 정하는 것이 중요합니다.'
+    work:'짧은 일정의 산출물 제작, 시범 운영, 빠른 초안 뒤 품질 검수가 필요한 보고·콘텐츠·프로젝트에 강점이 있습니다.',
+    risk:'한쪽은 “일단 내보자”, 다른 한쪽은 “조금 더 다듬자”에 머물 수 있습니다. 중간 검토 시점과 최종 완료 기준을 미리 정하는 것이 중요합니다.'
   },
   'execute-people':{
     strength:'실행 주도형이 결정과 행동의 속도를 만들고 관계 조율형이 이해관계자 반응과 협업 맥락을 읽어주면, 추진력을 유지하면서도 사람을 놓치지 않는 조합이 됩니다.',
-    work:'행사 운영, 변화 추진, 여러 부서가 동시에 움직이는 과제, 현장 대응처럼 속도와 커뮤니케이션이 함께 필요한 업무에 적합합니다.',
-    risk:'속도를 내는 과정에서 충분한 설명이 생략되거나, 반대로 관계를 배려하느라 결정이 늦어질 수 있습니다. 누가 결정하고 누가 소통을 맡을지 역할을 선명하게 두면 좋습니다.'
+    work:'행사 운영, 변화 추진, 다부서 과제, 현장 대응처럼 속도와 커뮤니케이션이 동시에 필요한 업무에 잘 맞습니다.',
+    risk:'속도를 내는 과정에서 설명이 생략되거나, 반대로 관계를 배려하느라 결정이 늦어질 수 있습니다. 결정과 소통의 역할을 선명하게 나누면 좋습니다.'
   },
   'plan-quality':{
-    strength:'구조 설계형이 전체 흐름과 논리를 세우고 완성도 집중형이 세부 기준과 정확도를 채우면, 복잡한 일을 체계적으로 정리하면서 결과의 신뢰도까지 높이기 좋습니다.',
-    work:'정책·매뉴얼 정비, 평가자료, 보고서, 프로세스 설계, 오류 허용도가 낮은 문서 작업처럼 구조와 정밀도가 모두 필요한 업무에 강합니다.',
-    risk:'두 사람 모두 충분히 정리된 뒤 움직이려 하면 속도가 떨어질 수 있습니다. 초안 완료 시점과 수정 횟수를 미리 제한하면 과도한 정교화가 줄어듭니다.'
+    strength:'구조 설계형이 전체 흐름과 논리를 세우고 완성도 집중형이 세부 기준과 정확도를 채우면, 복잡한 일을 체계화하면서 결과의 신뢰도까지 높이기 좋습니다.',
+    work:'정책·매뉴얼 정비, 평가자료, 보고서, 프로세스 설계처럼 구조와 정밀도가 동시에 필요한 업무에 강점이 있습니다.',
+    risk:'두 사람 모두 충분히 정리된 뒤 움직이려 하면 속도가 떨어질 수 있습니다. 초안 완료 시점과 수정 횟수를 제한하면 과도한 정교화를 줄일 수 있습니다.'
   },
   'plan-people':{
-    strength:'구조 설계형이 목표·순서·역할을 정리하고 관계 조율형이 사람들의 이해도와 수용성을 연결하면, 계획이 문서에 머물지 않고 실제 협업 행동으로 이어질 가능성이 높아집니다.',
-    work:'워크숍 설계, 협업 프로세스 개선, 다부서 프로젝트, 이해관계자 협의, 회의 구조화처럼 흐름과 관계를 동시에 관리해야 하는 업무에 잘 맞습니다.',
-    risk:'모든 사람의 의견과 상황을 반영하려다 구조가 복잡해질 수 있습니다. 핵심 의사결정 기준과 반드시 반영할 의견의 범위를 먼저 정하는 것이 효과적입니다.'
+    strength:'구조 설계형이 목표·순서·역할을 정리하고 관계 조율형이 구성원의 이해도와 수용성을 연결하면, 계획이 문서에 머물지 않고 실제 협업 행동으로 이어질 가능성이 높아집니다.',
+    work:'워크숍 설계, 협업 프로세스 개선, 다부서 프로젝트, 이해관계자 협의처럼 흐름과 관계를 동시에 관리해야 하는 업무에 잘 맞습니다.',
+    risk:'여러 사람의 의견을 모두 반영하려다 구조가 복잡해질 수 있습니다. 핵심 의사결정 기준과 반드시 반영할 의견의 범위를 먼저 정하는 것이 효과적입니다.'
   },
   'quality-people':{
     strength:'완성도 집중형의 높은 기준과 관계 조율형의 세심한 맥락 파악이 만나면, 결과물의 품질뿐 아니라 상대가 받아들이고 활용하는 경험까지 안정적으로 관리할 수 있습니다.',
-    work:'고객·직원 안내자료, 교육자료, 상담·지원 프로세스, 서비스 품질 관리처럼 정확성과 상대방 경험을 함께 고려해야 하는 업무에 적합합니다.',
-    risk:'품질과 관계를 모두 놓치지 않으려다 결정이 늦거나 에너지 소모가 커질 수 있습니다. 중요도에 따라 품질 수준을 구분하고 의견 수렴 마감 시점을 정해두면 좋습니다.'
+    work:'안내자료, 교육자료, 상담·지원 프로세스, 서비스 품질 관리처럼 정확성과 상대방 경험을 함께 고려해야 하는 업무에 적합합니다.',
+    risk:'품질과 관계를 모두 놓치지 않으려다 결정이 늦거나 에너지 소모가 커질 수 있습니다. 품질 수준과 의견 수렴 마감 시점을 미리 정해두면 좋습니다.'
   }
 };
 
@@ -85,23 +85,18 @@ function synergyPairScore(a,b){
   let score=0;
   const aToB=a.second_type===b.top_type;
   const bToA=b.second_type===a.top_type;
-  if(aToB&&bToA) score+=18;
-  else {
-    if(aToB) score+=8;
-    if(bToA) score+=8;
+  if(aToB&&bToA)score+=18;
+  else{
+    if(aToB)score+=8;
+    if(bToA)score+=8;
   }
 
   const gapA=scoreGap(a),gapB=scoreGap(b);
-  if(gapA<=1) score+=4;
-  else if(gapA<=2) score+=3;
-  else if(gapA<=3) score+=1;
-  if(gapB<=1) score+=4;
-  else if(gapB<=2) score+=3;
-  else if(gapB<=3) score+=1;
+  if(gapA<=1)score+=4; else if(gapA<=2)score+=3; else if(gapA<=3)score+=1;
+  if(gapB<=1)score+=4; else if(gapB<=2)score+=3; else if(gapB<=3)score+=1;
 
   if(a.second_type===b.second_type)score+=2;
   else if(a.second_type!==a.top_type&&a.second_type!==b.top_type&&b.second_type!==a.top_type&&b.second_type!==b.top_type)score+=2;
-
   return score;
 }
 
@@ -110,10 +105,7 @@ function getRecommendationsForSynergy(def){
   const groupB=responses.filter(r=>r.top_type===def.b);
   const candidates=[];
 
-  groupA.forEach(a=>groupB.forEach(b=>{
-    candidates.push({a,b,key:def.key,score:synergyPairScore(a,b)});
-  }));
-
+  groupA.forEach(a=>groupB.forEach(b=>candidates.push({a,b,key:def.key,score:synergyPairScore(a,b)})));
   candidates.sort((x,y)=>y.score-x.score||x.a.participant_name.localeCompare(y.a.participant_name,'ko')||x.b.participant_name.localeCompare(y.b.participant_name,'ko'));
 
   const picked=[];
@@ -125,7 +117,6 @@ function getRecommendationsForSynergy(def){
     used.add(p.b.participant_name);
     if(picked.length===3)return picked;
   }
-
   for(const p of candidates){
     if(picked.includes(p))continue;
     picked.push(p);
@@ -194,80 +185,58 @@ function nodeIcon(type,cx,cy){
 
 function relationshipNode(type,cx,cy){
   const sub={execute:'빠르게 움직이는 추진력',plan:'큰 그림을 만드는 설계력',quality:'끝까지 해내는 완성력',people:'사람을 연결하는 조율력'}[type];
-  return '<g class="rel-node-svg rel-node-'+type+'"><circle class="rel-node-bg" cx="'+cx+'" cy="'+cy+'" r="68"/>'+nodeIcon(type,cx,cy)+'<text class="rel-node-title" x="'+cx+'" y="'+(cy+10)+'" text-anchor="middle">'+TYPES[type]+'</text><text class="rel-node-subtitle" x="'+cx+'" y="'+(cy+31)+'" text-anchor="middle">'+sub+'</text></g>';
+  return '<g class="rel-node-svg rel-node-'+type+'"><circle class="rel-node-bg" cx="'+cx+'" cy="'+cy+'" r="72"/>'+nodeIcon(type,cx,cy)+'<text class="rel-node-title" x="'+cx+'" y="'+(cy+10)+'" text-anchor="middle">'+TYPES[type]+'</text><text class="rel-node-subtitle" x="'+cx+'" y="'+(cy+32)+'" text-anchor="middle">'+sub+'</text></g>';
 }
 
-function relationshipLink(link,active){return '<line class="rel-link'+(active?' is-hot':'')+'" x1="'+link.x1+'" y1="'+link.y1+'" x2="'+link.x2+'" y2="'+link.y2+'" />';}
-function relationshipLabel(link,active){const w=112,h=30,x=link.lx-w/2,y=link.ly-h/2;return '<g class="rel-label'+(active?' is-hot':'')+'"><rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="15"/><text x="'+link.lx+'" y="'+(link.ly+4)+'" text-anchor="middle">'+link.label+'</text></g>';}
+function relationshipLink(link,active){
+  return '<line class="rel-link'+(active?' is-hot':'')+'" x1="'+link.x1+'" y1="'+link.y1+'" x2="'+link.x2+'" y2="'+link.y2+'" />';
+}
+
+function relationshipLabel(link,active){
+  const w=124,h=34,x=link.lx-w/2,y=link.ly-h/2;
+  return '<g class="rel-label'+(active?' is-hot':'')+'"><rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="17"/><text x="'+link.lx+'" y="'+(link.ly+5)+'" text-anchor="middle">'+link.label+'</text></g>';
+}
 
 function renderRelationshipMap(groups){
   const active=new Set(groups.filter(g=>g.recommendations.length).map(g=>g.def.key));
   const links=[
-    {a:'execute',b:'plan',label:'속도 + 뼈대',x1:300,y1:85,x2:115,y2:260,lx:203,ly:165},
-    {a:'execute',b:'quality',label:'돌파 + 완성',x1:300,y1:85,x2:485,y2:260,lx:397,ly:165},
-    {a:'execute',b:'people',label:'추진 + 연결',x1:300,y1:85,x2:300,y2:435,lx:300,ly:355},
-    {a:'plan',b:'quality',label:'설계 + 정밀',x1:115,y1:260,x2:485,y2:260,lx:300,ly:260},
-    {a:'plan',b:'people',label:'흐름 + 조율',x1:115,y1:260,x2:300,y2:435,lx:203,ly:355},
-    {a:'quality',b:'people',label:'신뢰 + 협업',x1:485,y1:260,x2:300,y2:435,lx:397,ly:355}
+    {a:'execute',b:'plan',label:'속도 + 뼈대',x1:320,y1:90,x2:110,y2:280,lx:210,ly:180},
+    {a:'execute',b:'quality',label:'돌파 + 완성',x1:320,y1:90,x2:530,y2:280,lx:430,ly:180},
+    {a:'plan',b:'quality',label:'설계 + 정밀',x1:110,y1:280,x2:530,y2:280,lx:430,ly:280},
+    {a:'execute',b:'people',label:'추진 + 연결',x1:320,y1:90,x2:320,y2:495,lx:320,ly:395},
+    {a:'plan',b:'people',label:'흐름 + 조율',x1:110,y1:280,x2:320,y2:495,lx:210,ly:390},
+    {a:'quality',b:'people',label:'신뢰 + 협업',x1:530,y1:280,x2:320,y2:495,lx:430,ly:390}
   ];
   const lines=links.map(l=>relationshipLink(l,active.has(pairKey(l.a,l.b)))).join('');
   const labels=links.map(l=>relationshipLabel(l,active.has(pairKey(l.a,l.b)))).join('');
-  const nodes=relationshipNode('execute',300,85)+relationshipNode('plan',115,260)+relationshipNode('quality',485,260)+relationshipNode('people',300,435);
+  const nodes=relationshipNode('execute',320,90)+relationshipNode('plan',110,280)+relationshipNode('quality',530,280)+relationshipNode('people',320,495);
   const mobileLegend=links.map(l=>'<div class="relationship-pair-chip'+(active.has(pairKey(l.a,l.b))?' is-hot':'')+'"><span>'+LABELS[l.a]+' × '+LABELS[l.b]+'</span><strong>'+l.label+'</strong></div>').join('');
-  $('relationshipMap').innerHTML='<div class="relationship-graphic"><svg class="relationship-svg" viewBox="0 0 600 520" role="img" aria-label="네 가지 업무 스타일의 시너지 관계도">'+lines+labels+nodes+'</svg></div><div class="relationship-pair-list">'+mobileLegend+'</div>';
+  $('relationshipMap').innerHTML='<div class="relationship-graphic"><svg class="relationship-svg" viewBox="0 0 640 590" role="img" aria-label="네 가지 업무 스타일의 시너지 관계도">'+lines+labels+nodes+'</svg></div><div class="relationship-pair-list">'+mobileLegend+'</div>';
 }
 
-function profileNote(person){
-  const gap=scoreGap(person);
-  if(gap<=1)return '주성향과 보조성향의 차이가 작아 상황에 따라 두 방식을 비교적 유연하게 오갈 가능성이 있습니다.';
-  if(gap<=3)return '주성향이 중심을 잡으면서도 보조성향이 실제 행동에 함께 나타날 가능성이 있는 프로필입니다.';
-  return '주성향이 비교적 선명해 역할을 맡았을 때 해당 방식의 강점이 분명하게 드러날 가능성이 있습니다.';
-}
-
-function individualBridge(a,b){
+function pairSignal(a,b){
   const aToB=a.second_type===b.top_type;
   const bToA=b.second_type===a.top_type;
-  if(aToB&&bToA){
-    return esc(a.participant_name)+'님의 보조성향이 '+TYPES[b.top_type]+', '+esc(b.participant_name)+'님의 보조성향이 '+TYPES[a.top_type]+'으로 서로의 주성향을 교차해서 갖고 있습니다. 상대가 중요하게 보는 기준을 비교적 빠르게 이해할 수 있는 상호보완형에 가깝습니다.';
-  }
-  if(aToB){
-    return esc(a.participant_name)+'님이 '+TYPES[b.top_type]+'을 보조성향으로 함께 갖고 있어 '+esc(b.participant_name)+'님의 판단 기준을 이해하고 연결하는 데 유리합니다. 반대로 '+esc(b.participant_name)+'님은 '+TYPES[b.second_type]+'을 보조로 가져 조합에 다른 관점을 더합니다.';
-  }
-  if(bToA){
-    return esc(b.participant_name)+'님이 '+TYPES[a.top_type]+'을 보조성향으로 함께 갖고 있어 '+esc(a.participant_name)+'님의 속도와 판단 방식을 따라가기 쉽습니다. '+esc(a.participant_name)+'님의 '+TYPES[a.second_type]+' 보조성향은 협업 과정에 추가적인 균형을 만들어줍니다.';
-  }
-  if(a.second_type===b.second_type){
-    return '두 사람 모두 '+TYPES[a.second_type]+'을 보조성향으로 공유하고 있습니다. 주성향은 다르지만 문제를 바라보는 두 번째 렌즈가 같아, 의견 차이가 생겼을 때 공통 기준을 찾기 쉬운 편입니다.';
-  }
-  return esc(a.participant_name)+'님은 '+TYPES[a.second_type]+', '+esc(b.participant_name)+'님은 '+TYPES[b.second_type]+'을 보조성향으로 갖고 있습니다. 주성향 두 가지에 서로 다른 보조 관점까지 더해져 역할을 나눌 때 보완 범위가 넓은 조합입니다.';
-}
-
-function interpretationFor(def,pair){
-  const base=BASE_ANALYSIS[def.key];
-  const bridge=individualBridge(pair.a,pair.b);
-  const nuanceA=profileNote(pair.a);
-  const nuanceB=profileNote(pair.b);
-  return {
-    why:base.strength+' '+bridge,
-    work:base.work+' 특히 '+esc(pair.a.participant_name)+'님과 '+esc(pair.b.participant_name)+'님은 각각 '+LABELS[pair.a.second_type]+'·'+LABELS[pair.b.second_type]+' 보조성향을 함께 갖고 있어 역할 분담을 구체화하면 강점이 더 선명해질 수 있습니다.',
-    check:base.risk+' '+esc(pair.a.participant_name)+'님은 '+nuanceA+' '+esc(pair.b.participant_name)+'님은 '+nuanceB
-  };
+  if(aToB&&bToA)return '서로의 주성향을 보조로 공유';
+  if(aToB||bToA)return '주·보조성향이 한 방향으로 연결';
+  if(a.second_type===b.second_type)return '같은 보조성향을 공유';
+  return '서로 다른 보조 관점이 추가';
 }
 
 function memberMini(person){
-  return '<div class="pair-person"><span class="pair-avatar">'+esc(person.participant_name.slice(0,1))+'</span><div><strong>'+esc(person.participant_name)+'</strong><small>'+TYPES[person.top_type]+' · 보조 '+TYPES[person.second_type]+'</small></div></div>';
+  return '<div class="pair-person"><span class="pair-avatar">'+esc(person.participant_name.slice(0,1))+'</span><div><strong>'+esc(person.participant_name)+'</strong><small>'+TYPES[person.top_type]+'<br>보조 '+TYPES[person.second_type]+'</small></div></div>';
 }
 
 function renderSynergyGroups(groups){
   const letters=['A','B','C'];
   $('topPairs').innerHTML=groups.map(group=>{
     const def=group.def;
-    const cards=group.recommendations.length?group.recommendations.map((pair,i)=>{
-      const analysis=interpretationFor(def,pair);
-      return '<article class="pair-recommendation"><div class="pair-card-top"><span class="pair-pick">PAIR '+letters[i]+'</span><span class="pair-score-note">재미로 보는 추천 조합</span></div><div class="pair-people">'+memberMini(pair.a)+'<b class="pair-x">×</b>'+memberMini(pair.b)+'</div><div class="pair-analysis"><div><span>왜 잘 맞나</span><p>'+analysis.why+'</p></div><div><span>잘 맞는 업무</span><p>'+analysis.work+'</p></div><div><span>함께할 때 체크</span><p>'+analysis.check+'</p></div></div></article>';
+    const analysis=BASE_ANALYSIS[def.key];
+    const pairs=group.recommendations.length?group.recommendations.map((pair,i)=>{
+      return '<article class="pair-recommendation"><div class="pair-card-top"><span class="pair-pick">PAIR '+letters[i]+'</span><span class="pair-score-note">'+pairSignal(pair.a,pair.b)+'</span></div><div class="pair-people">'+memberMini(pair.a)+'<b class="pair-x">×</b>'+memberMini(pair.b)+'</div></article>';
     }).join(''):'<p class="empty-state">이 유형 조합을 만들 수 있는 참여자가 아직 충분하지 않습니다.</p>';
 
-    return '<section class="synergy-family synergy-'+def.key+'"><header class="synergy-family-head"><div><span>'+TYPES[def.a]+' × '+TYPES[def.b]+'</span><h4>'+def.title+'</h4><p>'+def.tagline+'</p></div><em>'+def.accent+'</em></header><div class="synergy-pair-grid">'+cards+'</div></section>';
+    return '<section class="synergy-family synergy-'+def.key+'"><header class="synergy-family-head"><div><span>'+TYPES[def.a]+' × '+TYPES[def.b]+'</span><h4>'+def.title+'</h4><p>'+def.tagline+'</p></div><em>'+def.accent+'</em></header><div class="synergy-analysis"><div><span>왜 잘 맞나</span><p>'+analysis.strength+'</p></div><div><span>잘 맞는 업무</span><p>'+analysis.work+'</p></div><div><span>함께할 때 체크</span><p>'+analysis.risk+'</p></div></div><div class="synergy-pair-grid">'+pairs+'</div></section>';
   }).join('');
 }
 
@@ -302,42 +271,103 @@ async function refresh(){
 }
 
 function ensureSummaryVisible(){
-  if($('teamSummary').hidden){$('summaryIntro').hidden=true;$('teamSummary').hidden=false;renderSummary();}
+  if($('teamSummary').hidden){
+    $('summaryIntro').hidden=true;
+    $('teamSummary').hidden=false;
+    renderSummary();
+  }
 }
 
 function downloadExcel(){
   if(!responses.length){alert('다운로드할 결과가 없습니다.');return;}
   const rows=responses.map((r,i)=>({번호:i+1,이름:r.participant_name,'1순위 유형':TYPES[r.top_type],'2순위 유형':TYPES[r.second_type],'실행 점수':r.execute_score,'설계 점수':r.plan_score,'완성도 점수':r.quality_score,'조율 점수':r.people_score,'완료 시각':new Date(r.completed_at).toLocaleString('ko-KR')}));
-  const ws=XLSX.utils.json_to_sheet(rows);
+  const synergyRows=[];
+  getAllSynergyGroups().forEach(group=>group.recommendations.forEach((pair,i)=>synergyRows.push({시너지유형:group.def.title,추천:'PAIR '+['A','B','C'][i],구성원1:pair.a.participant_name,'구성원1 주성향':TYPES[pair.a.top_type],'구성원1 보조성향':TYPES[pair.a.second_type],구성원2:pair.b.participant_name,'구성원2 주성향':TYPES[pair.b.top_type],'구성원2 보조성향':TYPES[pair.b.second_type],추천포인트:pairSignal(pair.a,pair.b)})));
+
   const wb=XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb,ws,'워크스타일 결과');
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(rows),'개인 결과');
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(synergyRows),'시너지 추천');
   XLSX.writeFile(wb,'workstyle-results.xlsx');
+}
+
+function canvasBlob(canvas){
+  return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('이미지 변환 실패')),'image/png'));
+}
+
+async function capturePage(page){
+  return html2canvas(page,{backgroundColor:'#f6f7f8',scale:2,useCORS:true,logging:false,windowWidth:Math.max(1440,page.scrollWidth)});
 }
 
 async function downloadImage(){
   if(!responses.length){alert('다운로드할 결과가 없습니다.');return;}
   ensureSummaryVisible();
-  const area=$('exportArea');area.classList.add('exporting');
+  const button=$('imageBtn');
+  const original=button.textContent;
+  button.disabled=true;
+  button.textContent='3장 만드는 중…';
+  document.body.classList.add('exporting-pages');
+
+  const pages=[
+    {id:'summaryPage1',name:'01_유형별구성원.png'},
+    {id:'summaryPage2',name:'02_시너지관계도.png'},
+    {id:'summaryPage3',name:'03_시너지추천페어.png'}
+  ];
+
   try{
-    const canvas=await html2canvas(area,{backgroundColor:'#f6f7f8',scale:2,useCORS:true});
-    const link=document.createElement('a');
-    link.download='workstyle-team-summary.png';
-    link.href=canvas.toDataURL('image/png');
-    link.click();
-  }catch(e){alert('이미지 저장 중 오류가 발생했습니다.');}
-  finally{area.classList.remove('exporting');}
+    const results=[];
+    for(const item of pages){
+      const canvas=await capturePage($(item.id));
+      results.push({name:item.name,blob:await canvasBlob(canvas)});
+    }
+
+    if(window.JSZip){
+      const zip=new JSZip();
+      results.forEach(item=>zip.file(item.name,item.blob));
+      const blob=await zip.generateAsync({type:'blob'});
+      const url=URL.createObjectURL(blob);
+      const link=document.createElement('a');
+      link.href=url;
+      link.download='워크스타일_팀결과_3장.zip';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(()=>URL.revokeObjectURL(url),1000);
+    }else{
+      for(const item of results){
+        const url=URL.createObjectURL(item.blob);
+        const link=document.createElement('a');
+        link.href=url;link.download=item.name;document.body.appendChild(link);link.click();link.remove();
+        setTimeout(()=>URL.revokeObjectURL(url),1000);
+        await new Promise(r=>setTimeout(r,250));
+      }
+    }
+  }catch(e){
+    console.error(e);
+    alert('결과 이미지 생성 중 오류가 발생했습니다.');
+  }finally{
+    document.body.classList.remove('exporting-pages');
+    button.disabled=false;
+    button.textContent=original;
+  }
 }
 
 async function resetData(){
   try{
     const r=await fetch(SUPABASE_URL+'/rest/v1/rpc/reset_workstyle_session',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY},body:JSON.stringify({p_slug:'team-workshop-01',p_presenter_code:code})});
     if(!r.ok){const d=await r.json().catch(()=>({}));throw new Error(d.message||d.error||'초기화 실패');}
-    $('resetModal').hidden=true;await refresh();$('teamSummary').hidden=true;$('summaryIntro').hidden=false;alert('워크숍 데이터가 초기화되었습니다.');
+    $('resetModal').hidden=true;
+    await refresh();
+    $('teamSummary').hidden=true;
+    $('summaryIntro').hidden=false;
+    alert('워크숍 데이터가 초기화되었습니다.');
   }catch(e){alert(e.message||'초기화 중 오류가 발생했습니다.');}
 }
 
 $('presenterForm').addEventListener('submit',async e=>{
-  e.preventDefault();code=$('presenterCode').value;const status=$('presenterStatus');status.textContent='확인 중…';
+  e.preventDefault();
+  code=$('presenterCode').value;
+  const status=$('presenterStatus');
+  status.textContent='확인 중…';
   try{await refresh();$('presenterGate').hidden=true;$('dashboard').hidden=false;status.textContent='';window.scrollTo(0,0);}catch(err){status.textContent=err.message;}
 });
 $('refreshBtn').addEventListener('click',async()=>{try{await refresh();if(!$('teamSummary').hidden)renderSummary();}catch(e){alert(e.message);}});

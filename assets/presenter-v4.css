@@ -1,0 +1,326 @@
+/* Page 03: full-width horizontal presentation */
+.summary-page.picks-page{
+  grid-template-columns:1fr!important;
+  gap:32px!important;
+  padding-top:48px;
+}
+
+.summary-page.picks-page>.summary-page-head{
+  position:static!important;
+  top:auto!important;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:36px;
+  width:100%;
+  padding-bottom:26px;
+  border-bottom:1px solid #111318;
+}
+
+.summary-page.picks-page>.summary-page-head>div:first-child{
+  max-width:900px!important;
+}
+
+.summary-page.picks-page>.summary-page-head h3{
+  max-width:820px;
+  font-size:clamp(40px,4.5vw,64px);
+  line-height:1.02;
+  word-break:keep-all;
+  text-wrap:balance;
+}
+
+.summary-page.picks-page>.summary-page-head p{
+  max-width:760px;
+  font-size:15px;
+  line-height:1.72;
+  word-break:keep-all;
+  text-wrap:pretty;
+}
+
+/* Important: old presenter styles had a 3-column outer grid. Force one synergy family per row. */
+.summary-page.picks-page .top-pairs{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:26px!important;
+  width:100%;
+  min-width:0;
+}
+
+/* One synergy = one wide horizontal module. */
+.summary-page.picks-page .synergy-family{
+  display:grid!important;
+  grid-template-columns:280px minmax(0,1fr)!important;
+  grid-template-areas:
+    "family-head family-analysis"
+    "family-head family-pairs";
+  width:100%;
+  min-width:0;
+  border:1px solid #d9dde4;
+  background:#fff;
+  overflow:hidden;
+}
+
+.summary-page.picks-page .synergy-family-head{
+  grid-area:family-head;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  align-items:flex-start!important;
+  gap:0!important;
+  padding:28px 26px!important;
+  border-right:1px solid #e2e6ec!important;
+  border-bottom:0!important;
+  background:#f8f9fb;
+}
+
+.summary-page.picks-page .synergy-family-head>div{
+  width:100%;
+}
+
+.summary-page.picks-page .synergy-family-head>div>span{
+  margin-bottom:10px;
+  font-size:11px;
+  line-height:1.45;
+  color:#3151ff;
+  font-weight:900;
+  word-break:keep-all;
+}
+
+.summary-page.picks-page .synergy-family-head h4{
+  margin:0;
+  font-size:38px;
+  line-height:1.02;
+  letter-spacing:-.045em;
+  word-break:keep-all;
+  text-wrap:balance;
+}
+
+.summary-page.picks-page .synergy-family-head p{
+  margin:14px 0 0;
+  font-size:14px;
+  line-height:1.65;
+  color:#626a76;
+  word-break:keep-all;
+  text-wrap:pretty;
+}
+
+.summary-page.picks-page .synergy-family-head em{
+  margin-top:auto;
+  max-width:none!important;
+  width:100%;
+  padding:11px 12px!important;
+  background:#eef3ff;
+  color:#3151ff;
+  font-size:11px;
+  line-height:1.5;
+  font-weight:900;
+  word-break:keep-all;
+}
+
+.summary-page.picks-page .synergy-analysis{
+  grid-area:family-analysis;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  min-width:0;
+  border-bottom:1px solid #e2e6ec;
+  background:#fff;
+}
+
+.summary-page.picks-page .synergy-analysis>div{
+  min-width:0;
+  padding:22px 24px!important;
+  border-right:1px solid #edf0f4!important;
+  border-bottom:0!important;
+}
+
+.summary-page.picks-page .synergy-analysis>div:last-child{
+  border-right:0!important;
+}
+
+.summary-page.picks-page .synergy-analysis span{
+  display:block;
+  margin-bottom:9px;
+  color:#3151ff;
+  font-size:11px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.summary-page.picks-page .synergy-analysis p{
+  margin:0;
+  color:#4f5865;
+  font-size:13px!important;
+  line-height:1.68!important;
+  word-break:keep-all;
+  overflow-wrap:normal;
+  text-wrap:pretty;
+}
+
+.summary-page.picks-page .synergy-pair-grid{
+  grid-area:family-pairs;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  min-width:0;
+  background:#fbfcfd;
+}
+
+.summary-page.picks-page .pair-recommendation{
+  min-width:0;
+  padding:20px 22px!important;
+  border-right:1px solid #e2e6ec!important;
+  border-bottom:0!important;
+}
+
+.summary-page.picks-page .pair-recommendation:last-child{
+  border-right:0!important;
+}
+
+.summary-page.picks-page .pair-card-top{
+  min-height:30px;
+  margin-bottom:16px;
+}
+
+.summary-page.picks-page .pair-score-note{
+  max-width:170px;
+  font-size:10px;
+  line-height:1.35;
+  text-align:right;
+  word-break:keep-all;
+}
+
+.summary-page.picks-page .pair-people{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;
+  gap:14px!important;
+  align-items:center;
+}
+
+.summary-page.picks-page .pair-person{
+  grid-template-columns:42px minmax(0,1fr)!important;
+  gap:11px!important;
+}
+
+.summary-page.picks-page .pair-avatar{
+  width:42px!important;
+  height:42px!important;
+  font-size:12px!important;
+}
+
+.summary-page.picks-page .pair-person strong{
+  font-size:15px!important;
+}
+
+.summary-page.picks-page .pair-person small{
+  margin-top:4px!important;
+  font-size:10px!important;
+  line-height:1.45!important;
+  word-break:keep-all;
+}
+
+.summary-page.picks-page .pair-x{
+  font-size:18px!important;
+}
+
+.summary-page.picks-page .pick-method-note,
+.summary-page.picks-page .workshop-insights{
+  width:100%;
+}
+
+/* Export Page 03 in a stable wide canvas as well. */
+.exporting-pages .summary-page.picks-page{
+  width:1600px!important;
+  max-width:none!important;
+  grid-template-columns:1fr!important;
+  padding:44px 48px 52px!important;
+}
+
+.exporting-pages .summary-page.picks-page>.summary-page-head{
+  display:flex!important;
+  position:static!important;
+}
+
+.exporting-pages .summary-page.picks-page .summary-next,
+.exporting-pages .summary-page.picks-page .summary-prev{
+  display:none!important;
+}
+
+/* Tablet: keep each synergy wide, but stack its title above data before text gets narrow. */
+@media(max-width:1180px){
+  .summary-page.picks-page .synergy-family{
+    grid-template-columns:1fr!important;
+    grid-template-areas:
+      "family-head"
+      "family-analysis"
+      "family-pairs";
+  }
+  .summary-page.picks-page .synergy-family-head{
+    border-right:0!important;
+    border-bottom:1px solid #e2e6ec!important;
+  }
+  .summary-page.picks-page .synergy-family-head em{
+    margin-top:18px;
+    width:auto;
+  }
+  .summary-page.picks-page .synergy-analysis{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+  .summary-page.picks-page .synergy-pair-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+}
+
+@media(max-width:900px){
+  .summary-page.picks-page>.summary-page-head{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .summary-page.picks-page .synergy-analysis{
+    grid-template-columns:1fr!important;
+  }
+  .summary-page.picks-page .synergy-analysis>div{
+    border-right:0!important;
+    border-bottom:1px solid #edf0f4!important;
+  }
+  .summary-page.picks-page .synergy-analysis>div:last-child{
+    border-bottom:0!important;
+  }
+  .summary-page.picks-page .synergy-pair-grid{
+    grid-template-columns:1fr!important;
+  }
+  .summary-page.picks-page .pair-recommendation{
+    border-right:0!important;
+    border-bottom:1px solid #e2e6ec!important;
+  }
+  .summary-page.picks-page .pair-recommendation:last-child{
+    border-bottom:0!important;
+  }
+}
+
+@media(max-width:620px){
+  .summary-page.picks-page{
+    padding-top:38px;
+  }
+  .summary-page.picks-page>.summary-page-head h3{
+    font-size:clamp(34px,10vw,46px);
+  }
+  .summary-page.picks-page .synergy-family-head{
+    padding:22px 20px!important;
+  }
+  .summary-page.picks-page .synergy-family-head h4{
+    font-size:31px;
+  }
+  .summary-page.picks-page .pair-people{
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;
+  }
+  .summary-page.picks-page .pair-person{
+    grid-template-columns:34px minmax(0,1fr)!important;
+  }
+  .summary-page.picks-page .pair-avatar{
+    width:34px!important;
+    height:34px!important;
+  }
+  .summary-page.picks-page .pair-score-note{
+    max-width:130px;
+  }
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f7f8">
+<title>KIMKIM 진행자 모드</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="./assets/app.css?v=20260911-1">
+<link rel="stylesheet" href="./assets/workshop.css?v=20260911-1">
+</head>
+<body class="presenter-page">
+<nav class="site-nav">
+  <a class="brand-wrap" href="./index.html" aria-label="KIMKIM 홈"><span class="brand">KIMKIM</span><span class="brand-desc">진행자 모드</span></a>
+  <a class="back-link" href="./workshop.html">← 참여자 화면</a>
+</nav>
+<main>
+<section id="presenterGate" class="presenter-gate">
+  <div class="gate-card">
+    <p class="workshop-kicker">PRESENTER MODE</p>
+    <h1>팀 결과를<br>열어볼까요?</h1>
+    <p>진행자 코드를 입력하면 완료 인원과 팀 워크스타일을 확인할 수 있습니다.</p>
+    <form id="presenterForm" class="presenter-form">
+      <label for="presenterCode">진행자 코드</label>
+      <input id="presenterCode" type="password" autocomplete="current-password" required placeholder="코드 입력">
+      <button type="submit">진행자 모드 입장</button>
+      <p id="presenterStatus" class="form-status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section id="dashboard" class="presenter-dashboard" hidden>
+  <header class="dashboard-head">
+    <div>
+      <p class="workshop-kicker">LIVE WORKSHOP</p>
+      <h1 id="sessionTitle">팀 워크스타일 워크숍</h1>
+      <p><strong id="memberCount">0명</strong>이 진단을 완료했습니다.</p>
+    </div>
+    <button id="refreshBtn" class="ghost-btn" type="button">새로고침</button>
+  </header>
+
+  <div class="dashboard-grid">
+    <section class="dashboard-card member-card">
+      <div class="card-head"><span>완료한 구성원</span><strong id="completionBadge">0</strong></div>
+      <div id="memberList" class="member-list"><p class="empty-state">아직 완료한 인원이 없습니다.</p></div>
+    </section>
+    <section class="dashboard-card distribution-card">
+      <div class="card-head"><span>팀 유형 분포</span><strong>4 TYPES</strong></div>
+      <div id="distribution" class="distribution"></div>
+    </section>
+  </div>
+
+  <section class="summary-stage">
+    <div class="summary-intro" id="summaryIntro">
+      <p class="workshop-kicker">TEAM CHEMISTRY</p>
+      <h2>사람이 모였으니,<br><em>이제 조합을 볼 차례.</em></h2>
+      <p>구성원의 1·2순위 성향을 바탕으로 서로 다른 강점이 맞물리는 페어를 찾아봅니다.</p>
+      <button id="summaryBtn" type="button" class="summary-btn">결과 요약하기 <span>→</span></button>
+    </div>
+    <div id="teamSummary" class="team-summary" hidden>
+      <div class="team-headline">
+        <div><span>우리 팀 한 줄 요약</span><h2 id="teamHeadline"></h2></div>
+        <button id="rerunBtn" type="button" class="ghost-btn">다시 펼치기</button>
+      </div>
+      <div id="chemistryMap" class="chemistry-map"></div>
+      <div id="teamInsights" class="team-insights"></div>
+    </div>
+  </section>
+</section>
+</main>
+<script src="./assets/presenter.js?v=20260911-1"></script>
+</body>
+</html>

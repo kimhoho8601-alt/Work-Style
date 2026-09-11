@@ -191,6 +191,46 @@
   padding:40px 48px 48px!important;
 }
 
+/* html2canvas capture stabilization: never capture the entry animation mid-opacity. */
+.exporting-pages *,
+.exporting-pages *::before,
+.exporting-pages *::after{
+  animation:none!important;
+  transition:none!important;
+}
+.exporting-pages .summary-page,
+.exporting-pages .summary-page *,
+.exporting-pages .type-roster,
+.exporting-pages .type-roster *,
+.exporting-pages .synergy-family,
+.exporting-pages .pair-recommendation,
+.exporting-pages .relationship-map,
+.exporting-pages .relationship-graphic{
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
+  -webkit-print-color-adjust:exact!important;
+  print-color-adjust:exact!important;
+}
+.exporting-pages #summaryPage1,
+.exporting-pages #summaryPage2,
+.exporting-pages #summaryPage3{background:#f6f7f8!important}
+.exporting-pages .type-roster-execute{background:#fff1f3!important;border-color:#ffd9df!important}
+.exporting-pages .type-roster-plan{background:#eef5ff!important;border-color:#d5e6ff!important}
+.exporting-pages .type-roster-quality{background:#eef9f2!important;border-color:#d2efdc!important}
+.exporting-pages .type-roster-people{background:#f5f0ff!important;border-color:#e5d8ff!important}
+.exporting-pages .type-roster strong,
+.exporting-pages .name-chip{color:#111318!important}
+.exporting-pages .type-roster p{color:#6b7079!important}
+.exporting-pages .type-roster-execute .type-symbol{color:#ff7043!important}
+.exporting-pages .type-roster-plan .type-symbol{color:#3151ff!important}
+.exporting-pages .type-roster-quality .type-symbol{color:#111318!important}
+.exporting-pages .type-roster-people .type-symbol{color:#111318!important}
+.exporting-pages .name-chip{background:#fff!important;border-color:#e1e5ea!important}
+.exporting-pages .synergy-family{background:#fff!important}
+.exporting-pages .synergy-family-head{background:#f8f9fb!important}
+.exporting-pages .synergy-pair-grid{background:#fbfcfd!important}
+
 @media(max-width:1100px){
   #summaryPage2.summary-page.relationship-page{grid-template-columns:1fr!important}
   #summaryPage2 .summary-page-head{position:static!important}
